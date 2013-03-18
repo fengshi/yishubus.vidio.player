@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B96293216F6DA5600889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293016F6DA5600889C39 /* MainViewController.m */; };
-		8B96293316F6DA5600889C39 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B96293116F6DA5600889C39 /* MainViewController.xib */; };
+		8B96294116F6F6B900889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293F16F6F6B900889C39 /* MainViewController.m */; };
+		8B96294216F6F6B900889C39 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B96294016F6F6B900889C39 /* MainViewController.xib */; };
 		8BB0E86E16F314470049F92E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86D16F314470049F92E /* UIKit.framework */; };
 		8BB0E87016F314470049F92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86F16F314470049F92E /* Foundation.framework */; };
 		8BB0E87216F314470049F92E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E87116F314470049F92E /* CoreGraphics.framework */; };
@@ -36,9 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B96292F16F6DA5600889C39 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		8B96293016F6DA5600889C39 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		8B96293116F6DA5600889C39 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		8B96293E16F6F6B900889C39 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8B96293F16F6F6B900889C39 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		8B96294016F6F6B900889C39 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		8BB0E86A16F314470049F92E /* VidioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB0E86D16F314470049F92E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB0E86F16F314470049F92E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,9 +142,9 @@
 				8BB0E87C16F314470049F92E /* VidioPlayerAppDelegate.h */,
 				8BB0E87D16F314470049F92E /* VidioPlayerAppDelegate.m */,
 				8BB0E87416F314470049F92E /* Supporting Files */,
-				8B96292F16F6DA5600889C39 /* MainViewController.h */,
-				8B96293016F6DA5600889C39 /* MainViewController.m */,
-				8B96293116F6DA5600889C39 /* MainViewController.xib */,
+				8B96293E16F6F6B900889C39 /* MainViewController.h */,
+				8B96293F16F6F6B900889C39 /* MainViewController.m */,
+				8B96294016F6F6B900889C39 /* MainViewController.xib */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				8BB0E88016F314470049F92E /* Default.png in Resources */,
 				8BB0E88216F314470049F92E /* Default@2x.png in Resources */,
 				8BB0E88416F314470049F92E /* Default-568h@2x.png in Resources */,
-				8B96293316F6DA5600889C39 /* MainViewController.xib in Resources */,
+				8B96294216F6F6B900889C39 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +290,7 @@
 				8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */,
 				8BB0E8D916F316F30049F92E /* Reachability.m in Sources */,
 				8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */,
-				8B96293216F6DA5600889C39 /* MainViewController.m in Sources */,
+				8B96294116F6F6B900889C39 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

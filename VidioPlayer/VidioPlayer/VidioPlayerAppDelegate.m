@@ -16,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.tabBarController = [[UITabBarController alloc] init];
     
-    MainViewController *mainController = [[MainViewController alloc] init];
+    MainViewController *mainController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation, nil];
