@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B96293216F6DA5600889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293016F6DA5600889C39 /* MainViewController.m */; };
+		8B96293316F6DA5600889C39 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B96293116F6DA5600889C39 /* MainViewController.xib */; };
 		8BB0E86E16F314470049F92E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86D16F314470049F92E /* UIKit.framework */; };
 		8BB0E87016F314470049F92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86F16F314470049F92E /* Foundation.framework */; };
 		8BB0E87216F314470049F92E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E87116F314470049F92E /* CoreGraphics.framework */; };
@@ -21,19 +23,22 @@
 		8BB0E8B416F3151E0049F92E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8B316F3151E0049F92E /* SystemConfiguration.framework */; };
 		8BB0E8B616F315240049F92E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8B516F315240049F92E /* CFNetwork.framework */; };
 		8BB0E8B816F3152A0049F92E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8B716F3152A0049F92E /* MobileCoreServices.framework */; };
-		8BB0E8D116F316F30049F92E /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8BB16F316F30049F92E /* ASIAuthenticationDialog.m */; };
-		8BB0E8D216F316F30049F92E /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8BE16F316F30049F92E /* ASIDataCompressor.m */; };
-		8BB0E8D316F316F30049F92E /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C016F316F30049F92E /* ASIDataDecompressor.m */; };
-		8BB0E8D416F316F30049F92E /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C216F316F30049F92E /* ASIDownloadCache.m */; };
-		8BB0E8D516F316F30049F92E /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C416F316F30049F92E /* ASIFormDataRequest.m */; };
-		8BB0E8D616F316F30049F92E /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C616F316F30049F92E /* ASIHTTPRequest.m */; };
-		8BB0E8D716F316F30049F92E /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CA16F316F30049F92E /* ASIInputStream.m */; };
-		8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CC16F316F30049F92E /* ASINetworkQueue.m */; };
-		8BB0E8D916F316F30049F92E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8D016F316F30049F92E /* Reachability.m */; };
-		8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8DC16F316FA0049F92E /* JSONKit.m */; };
+		8BB0E8D116F316F30049F92E /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8BB16F316F30049F92E /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D216F316F30049F92E /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8BE16F316F30049F92E /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D316F316F30049F92E /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C016F316F30049F92E /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D416F316F30049F92E /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C216F316F30049F92E /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D516F316F30049F92E /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C416F316F30049F92E /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D616F316F30049F92E /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8C616F316F30049F92E /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D716F316F30049F92E /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CA16F316F30049F92E /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CC16F316F30049F92E /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8D916F316F30049F92E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8D016F316F30049F92E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8DC16F316FA0049F92E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B96292F16F6DA5600889C39 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8B96293016F6DA5600889C39 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		8B96293116F6DA5600889C39 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		8BB0E86A16F314470049F92E /* VidioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB0E86D16F314470049F92E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB0E86F16F314470049F92E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +142,9 @@
 				8BB0E87C16F314470049F92E /* VidioPlayerAppDelegate.h */,
 				8BB0E87D16F314470049F92E /* VidioPlayerAppDelegate.m */,
 				8BB0E87416F314470049F92E /* Supporting Files */,
+				8B96292F16F6DA5600889C39 /* MainViewController.h */,
+				8B96293016F6DA5600889C39 /* MainViewController.m */,
+				8B96293116F6DA5600889C39 /* MainViewController.xib */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				8BB0E88016F314470049F92E /* Default.png in Resources */,
 				8BB0E88216F314470049F92E /* Default@2x.png in Resources */,
 				8BB0E88416F314470049F92E /* Default-568h@2x.png in Resources */,
+				8B96293316F6DA5600889C39 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +290,7 @@
 				8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */,
 				8BB0E8D916F316F30049F92E /* Reachability.m in Sources */,
 				8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */,
+				8B96293216F6DA5600889C39 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

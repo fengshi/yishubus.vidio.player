@@ -7,13 +7,22 @@
 //
 
 #import "VidioPlayerAppDelegate.h"
+#import "MainViewController.h"
 
 @implementation VidioPlayerAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    MainViewController *mainController = [[MainViewController alloc] init];
+    UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation, nil];
+    
+    [self.window addSubview:self.tabBarController.view];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
