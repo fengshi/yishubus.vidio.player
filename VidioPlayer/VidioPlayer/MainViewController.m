@@ -8,11 +8,12 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController()
 
 @end
 
 @implementation MainViewController
+@synthesize array = _array;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSArray *array2 = [[NSArray alloc] initWithObjects:@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
+                       ,@"乌乌",@"黑客帝国",@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
+                       ,@"乌乌",@"黑客帝国",nil];
+    self.array = array2;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,16 +44,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,9 +60,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    // Configure the cell...
-    
+    cell.textLabel.text = [self.array objectAtIndex:[indexPath row]];
     return cell;
 }
 

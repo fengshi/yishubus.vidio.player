@@ -10,4 +10,5 @@
 
 @interface MainViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *array;
 @end
