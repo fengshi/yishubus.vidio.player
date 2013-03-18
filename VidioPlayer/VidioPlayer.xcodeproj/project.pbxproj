@@ -32,6 +32,11 @@
 		8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CC16F316F30049F92E /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8BB0E8D916F316F30049F92E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8D016F316F30049F92E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8DC16F316FA0049F92E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BDEB47616F6FE6200ECB6E8 /* MainTitleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */; };
+		8BDEB47916F6FFD900ECB6E8 /* NetworkData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47816F6FFD900ECB6E8 /* NetworkData.m */; };
+		8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */; };
+		8BDEB48416F7086C00ECB6E8 /* MainTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */; };
+		8BDEB48816F70F4700ECB6E8 /* RequestURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48716F70F4700ECB6E8 /* RequestURL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +84,16 @@
 		8BB0E8D016F316F30049F92E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8BB0E8DB16F316FA0049F92E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		8BB0E8DC16F316FA0049F92E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		8BDEB47416F6FE6200ECB6E8 /* MainTitleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTitleObject.h; sourceTree = "<group>"; };
+		8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleObject.m; sourceTree = "<group>"; };
+		8BDEB47716F6FFD900ECB6E8 /* NetworkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkData.h; sourceTree = "<group>"; };
+		8BDEB47816F6FFD900ECB6E8 /* NetworkData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkData.m; sourceTree = "<group>"; };
+		8BDEB47D16F706F100ECB6E8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8BDEB48016F7083200ECB6E8 /* MainTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTitleCell.h; sourceTree = "<group>"; };
+		8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleCell.m; sourceTree = "<group>"; };
+		8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTitleCell.xib; sourceTree = "<group>"; };
+		8BDEB48616F70F4700ECB6E8 /* RequestURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestURL.h; sourceTree = "<group>"; };
+		8BDEB48716F70F4700ECB6E8 /* RequestURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestURL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,11 +152,19 @@
 		8BB0E87316F314470049F92E /* VidioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				8BDEB48516F70F0C00ECB6E8 /* util */,
 				8BB0E87C16F314470049F92E /* VidioPlayerAppDelegate.h */,
 				8BB0E87D16F314470049F92E /* VidioPlayerAppDelegate.m */,
 				8BB0E87416F314470049F92E /* Supporting Files */,
 				8B96293E16F6F6B900889C39 /* MainViewController.h */,
 				8B96293F16F6F6B900889C39 /* MainViewController.m */,
+				8BDEB47416F6FE6200ECB6E8 /* MainTitleObject.h */,
+				8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */,
+				8BDEB47716F6FFD900ECB6E8 /* NetworkData.h */,
+				8BDEB47816F6FFD900ECB6E8 /* NetworkData.m */,
+				8BDEB48016F7083200ECB6E8 /* MainTitleCell.h */,
+				8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */,
+				8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -208,6 +231,16 @@
 			path = ../JSONKit;
 			sourceTree = "<group>";
 		};
+		8BDEB48516F70F0C00ECB6E8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				8BDEB47D16F706F100ECB6E8 /* Constants.h */,
+				8BDEB48616F70F4700ECB6E8 /* RequestURL.h */,
+				8BDEB48716F70F4700ECB6E8 /* RequestURL.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +297,7 @@
 				8BB0E88016F314470049F92E /* Default.png in Resources */,
 				8BB0E88216F314470049F92E /* Default@2x.png in Resources */,
 				8BB0E88416F314470049F92E /* Default-568h@2x.png in Resources */,
+				8BDEB48416F7086C00ECB6E8 /* MainTitleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +321,10 @@
 				8BB0E8D916F316F30049F92E /* Reachability.m in Sources */,
 				8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */,
 				8B96294116F6F6B900889C39 /* MainViewController.m in Sources */,
+				8BDEB47616F6FE6200ECB6E8 /* MainTitleObject.m in Sources */,
+				8BDEB47916F6FFD900ECB6E8 /* NetworkData.m in Sources */,
+				8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */,
+				8BDEB48816F70F4700ECB6E8 /* RequestURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

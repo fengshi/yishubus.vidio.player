@@ -6,8 +6,7 @@
 //  Copyright (c) 2013年 com.yishubus.vidioplayer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#define MAIN             @"http://192.168.0.102:8080/"
 
-@interface Constants : NSObject
-
-@end
+#define MAIN_TITLE_URL   1
+#define MAIN_TITLE_COUNT 3

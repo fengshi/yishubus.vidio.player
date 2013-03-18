@@ -10,4 +10,8 @@
 
 @interface MainTitleObject : NSObject
 
+@property (nonatomic, weak) NSString *imageUrl;
+@property (nonatomic, weak) NSString *introduce;
+@property (nonatomic) int mid;
+
 @end

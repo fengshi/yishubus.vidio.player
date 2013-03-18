@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainTitleCell : UITableViewCell
+@protocol MainTitleDelegate <NSObject>
 
+@optional
+- (void) clickedImageSend: (int) mid;
+
+@end
+@interface MainTitleCell : UITableViewCell <UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *imageViews;
+@property (nonatomic, weak) id<MainTitleDelegate> delegate;
 @end

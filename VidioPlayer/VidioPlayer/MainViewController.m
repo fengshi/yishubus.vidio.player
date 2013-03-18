@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "NetworkData.h"
 
 @interface MainViewController()
 
@@ -44,12 +45,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 1;
+    }
     return [self.array count];
 }
 

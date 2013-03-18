@@ -10,4 +10,8 @@
 
 @implementation MainTitleObject
 
+@synthesize imageUrl = _imageUrl;
+@synthesize introduce = _introduce;
+@synthesize mid = _mid;
+
 @end
