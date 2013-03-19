@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "NetworkData.h"
+#import "MainTitleCell.h"
+#import "Constants.h"
 
 @interface MainViewController()
 
@@ -59,14 +61,37 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *mainTitle = @"maintitle";
+    if (indexPath.section == 0) {
+        UINib *nib = [UINib nibWithNibName:@"MainTitleCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:mainTitle];
+        
+        MainTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:mainTitle];
+        cell.delegate = self;
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        cell.textLabel.text = [self.array objectAtIndex:[indexPath row]];
+        return cell;
     }
-    cell.textLabel.text = [self.array objectAtIndex:[indexPath row]];
-    return cell;
 }
 
+- (void) clickedImageSend:(int)mid
+{
+    NSLog(@"aaaa=%d",mid);
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return MAIN_TITLE_HEIGHT;
+    }
+    return 35;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

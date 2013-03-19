@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTitleCell.h"
 
-@interface MainViewController : UITableViewController
+@interface MainViewController : UITableViewController <MainTitleDelegate>
 
 @property (strong, nonatomic) NSArray *array;
 @end

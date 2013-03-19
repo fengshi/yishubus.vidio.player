@@ -24,7 +24,6 @@
         NSString *jsonResult = [request responseString];
         NSArray *resultArray = [jsonResult objectFromJSONString];
         NSDictionary *dataDictionary = [resultArray objectAtIndex:0];
-        NSLog(@"%@",[[dataDictionary objectForKey:@"id"]class ]);
         if ([[dataDictionary objectForKey:@"id"] isEqual:@"title"])
         {
             NSMutableArray *result = [[NSMutableArray alloc] init];

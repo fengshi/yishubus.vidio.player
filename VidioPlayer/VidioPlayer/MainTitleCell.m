@@ -56,14 +56,19 @@
 {
     [self setUp];
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * MAIN_TITLE_COUNT, self.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
     
+    self.pagecontrol.numberOfPages = [self.imageViews count];
+    self.pagecontrol.currentPage = 0;
+    
     MainTitleObject *mo = [self.imageViews objectAtIndex:0];
     self.label.text = mo.introduce;
+    
+    [self createPages];
 }
 
 - (void) createPages
