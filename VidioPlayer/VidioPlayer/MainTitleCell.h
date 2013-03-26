@@ -15,7 +15,19 @@
 
 @end
 @interface MainTitleCell : UITableViewCell <UIScrollViewDelegate>
+{
+    UIScrollView *scrollView;
+    UIPageControl *pagecontrol;
+    UILabel *label;
+}
+
+@property (strong,nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong,nonatomic) IBOutlet UIPageControl *pagecontrol;
+@property (strong,nonatomic) IBOutlet UILabel *label;
 
 @property (nonatomic, strong) NSMutableArray *imageViews;
 @property (nonatomic, weak) id<MainTitleDelegate> delegate;
+
+- (void) initDraw:(NSMutableArray *) array;
+
 @end

@@ -14,10 +14,6 @@
 
 @interface MainTitleCell()
 
-@property (strong,nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong,nonatomic) IBOutlet UIPageControl *pagecontrol;
-@property (strong,nonatomic) IBOutlet UILabel *label;
-
 @end
 
 @implementation MainTitleCell
@@ -51,17 +47,41 @@
     self.imageViews = data;
 }
 
+//- (void) drawRect:(CGRect)rect
+//{
+//    [self setUp];
+//    self.scrollView.pagingEnabled = YES;
+//    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
+//    self.scrollView.showsHorizontalScrollIndicator = NO;
+//    self.scrollView.showsVerticalScrollIndicator = NO;
+//    self.scrollView.scrollsToTop = NO;
+//    self.scrollView.delegate = self;
+//    
+//    self.pagecontrol.numberOfPages = [self.imageViews count];
+//    self.pagecontrol.currentPage = 0;
+//    
+//    MainTitleObject *mo = [self.imageViews objectAtIndex:0];
+//    self.label.text = mo.introduce;
+//    
+//    [self createPages];
+//}
 
-- (void) drawRect:(CGRect)rect
+- (void) initDraw:(NSMutableArray *) array
 {
-    [self setUp];
+    if ([[self.scrollView subviews] count] > 0) {
+        for (UIView *subview in [self.scrollView subviews]) {
+            [subview removeFromSuperview];
+        }
+    }
+    self.imageViews = array;
+    
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
-    
+
     self.pagecontrol.numberOfPages = [self.imageViews count];
     self.pagecontrol.currentPage = 0;
     

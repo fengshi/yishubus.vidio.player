@@ -10,6 +10,8 @@
 #import "NetworkData.h"
 #import "MainTitleCell.h"
 #import "Constants.h"
+#import "RequestURL.h"
+#import "MainTitleObject.h"
 
 @interface MainViewController()
 
@@ -17,6 +19,7 @@
 
 @implementation MainViewController
 @synthesize array = _array;
+@synthesize titleArray = _titleArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,14 +30,34 @@
     return self;
 }
 
+- (void) loadTitleArray
+{
+    NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
+    NetworkData *network = [[NetworkData alloc] init];
+    NSMutableArray *data = [network mainTitleData:titleUrl];
+    self.titleArray = data;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self loadTitleArray];
     
     NSArray *array2 = [[NSArray alloc] initWithObjects:@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
                        ,@"乌乌",@"黑客帝国",@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
                        ,@"乌乌",@"黑客帝国",nil];
     self.array = array2;
+    
+    if (_refreshHeaderView == nil)
+    {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0 - self.tableView.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    
+    [_refreshHeaderView refreshLastUpdatedDate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +90,7 @@
         [tableView registerNib:nib forCellReuseIdentifier:mainTitle];
         
         MainTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:mainTitle];
+        [cell initDraw:self.titleArray];
         cell.delegate = self;
         return cell;
     } else {
@@ -137,11 +161,50 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
 
+- (void)reloadTableViewDataSource
+{
+    [self loadTitleArray];
+    [self.tableView reloadData];
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+    
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void) egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+}
+
+- (BOOL) egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+
+- (NSDate *) egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
+}
 @end

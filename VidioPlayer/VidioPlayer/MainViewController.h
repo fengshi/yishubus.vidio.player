@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MainTitleCell.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface MainViewController : UITableViewController <MainTitleDelegate>
+@interface MainViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource,MainTitleDelegate,EGORefreshTableHeaderDelegate> {
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+}
 
 @property (strong, nonatomic) NSArray *array;
+@property (retain, nonatomic) NSMutableArray *titleArray;
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
+
 @end
