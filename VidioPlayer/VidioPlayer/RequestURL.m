@@ -17,7 +17,8 @@
         case MAIN_TITLE_URL:
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhone"];
             break;
-            
+        case MAIN_COLUMN_URL:
+            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneColumn"];
         default:
             break;
     }

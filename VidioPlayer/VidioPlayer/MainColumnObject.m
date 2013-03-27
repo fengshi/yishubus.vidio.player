@@ -9,5 +9,8 @@
 #import "MainColumnObject.h"
 
 @implementation MainColumnObject
+@synthesize columnName = _columnName;
+@synthesize columnDetails = _columnDetails;
+@synthesize columnId = _columnId;
 
 @end

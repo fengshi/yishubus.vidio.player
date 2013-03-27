@@ -10,4 +10,8 @@
 
 @interface MainColumnObject : NSObject
 
+@property (nonatomic, strong) NSString *columnName;
+@property (nonatomic, strong) NSMutableArray *columnDetails;
+@property (nonatomic) int columnId;
+
 @end
