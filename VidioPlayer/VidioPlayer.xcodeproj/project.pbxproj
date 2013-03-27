@@ -17,6 +17,7 @@
 		8B8E555516FFF9FB0092B1CA /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E554C16FFF9FB0092B1CA /* whiteArrow.png */; };
 		8B8E555616FFF9FB0092B1CA /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E554D16FFF9FB0092B1CA /* whiteArrow@2x.png */; };
 		8B8E555816FFFA110092B1CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E555716FFFA110092B1CA /* QuartzCore.framework */; };
+		8B8E555B1702FBAD0092B1CA /* MainColumnObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E555A1702FBAD0092B1CA /* MainColumnObject.m */; };
 		8B96294116F6F6B900889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293F16F6F6B900889C39 /* MainViewController.m */; };
 		8BB0E86E16F314470049F92E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86D16F314470049F92E /* UIKit.framework */; };
 		8BB0E87016F314470049F92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86F16F314470049F92E /* Foundation.framework */; };
@@ -61,6 +62,8 @@
 		8B8E554C16FFF9FB0092B1CA /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		8B8E554D16FFF9FB0092B1CA /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
 		8B8E555716FFFA110092B1CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8B8E55591702FBAD0092B1CA /* MainColumnObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainColumnObject.h; sourceTree = "<group>"; };
+		8B8E555A1702FBAD0092B1CA /* MainColumnObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainColumnObject.m; sourceTree = "<group>"; };
 		8B96293E16F6F6B900889C39 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		8B96293F16F6F6B900889C39 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		8BB0E86A16F314470049F92E /* VidioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +234,8 @@
 				8BDEB48016F7083200ECB6E8 /* MainTitleCell.h */,
 				8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */,
 				8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */,
+				8B8E55591702FBAD0092B1CA /* MainColumnObject.h */,
+				8B8E555A1702FBAD0092B1CA /* MainColumnObject.m */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */,
 				8BDEB48816F70F4700ECB6E8 /* RequestURL.m in Sources */,
 				8B8E554E16FFF9FB0092B1CA /* EGORefreshTableHeaderView.m in Sources */,
+				8B8E555B1702FBAD0092B1CA /* MainColumnObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
