@@ -14,7 +14,7 @@
 
 @implementation NetworkData
 
-- (NSMutableArray *) mainTitleData: (NSString *) dataUrl
++ (NSMutableArray *) mainTitleData: (NSString *) dataUrl
 {
     NSURL *url = [NSURL URLWithString:dataUrl];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -46,7 +46,7 @@
     return nil;
 }
 
-- (NSMutableArray *) mainColumnData:(NSString *)dataUrl
++ (NSMutableArray *) mainColumnData:(NSString *)dataUrl
 {
     NSURL *url = [NSURL URLWithString:dataUrl];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -55,6 +55,8 @@
     if (!error) {
         NSString *jsonResult = [request responseString];
         NSArray *resultArray = [jsonResult objectFromJSONString];
+        NSLog(@"%@",[[jsonResult objectFromJSONString] class]);
+        NSLog(@"%@",jsonResult);
         NSDictionary *dataDictionary = [resultArray objectAtIndex:0];
         if ([[dataDictionary objectForKey:@"id"] isEqual:@"column"]) {
             NSArray *data = [dataDictionary objectForKey:@"data"];

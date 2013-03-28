@@ -12,13 +12,14 @@
 #import "Constants.h"
 #import "RequestURL.h"
 #import "MainTitleObject.h"
+#import "MainColumnObject.h"
 
 @interface MainViewController()
 
 @end
 
 @implementation MainViewController
-@synthesize array = _array;
+@synthesize columnArray = _columnArray;
 @synthesize titleArray = _titleArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -33,9 +34,20 @@
 - (void) loadTitleArray
 {
     NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
-    NetworkData *network = [[NetworkData alloc] init];
-    NSMutableArray *data = [network mainTitleData:titleUrl];
-    self.titleArray = data;
+    self.titleArray = [NetworkData mainTitleData:titleUrl];
+}
+
+- (void) loadColumnArray
+{
+    NSString *columnUrl = [RequestURL getUrlByKey:MAIN_COLUMN_URL];
+    self.columnArray = [NetworkData mainColumnData:columnUrl];
+    NSLog(@"%d",self.columnArray.count);
+}
+
+- (MainColumnObject *) fromColumnArrayGetObjectBySection:(NSInteger) section
+{
+    MainColumnObject *columnObj = [self.columnArray objectAtIndex:section-1];
+    return columnObj;
 }
 
 - (void)viewDidLoad
@@ -43,11 +55,7 @@
     [super viewDidLoad];
     
     [self loadTitleArray];
-    
-    NSArray *array2 = [[NSArray alloc] initWithObjects:@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
-                       ,@"乌乌",@"黑客帝国",@"肖申克的救赎",@"老爷",@"十二怒汉",@"啊啊",@"吃吃"
-                       ,@"乌乌",@"黑客帝国",nil];
-    self.array = array2;
+    [self loadColumnArray];
     
     if (_refreshHeaderView == nil)
     {
@@ -70,15 +78,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return [self.columnArray count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
         return 1;
+    } else {
+        MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:section];
+        return [columnObj.columnDetails count];
     }
-    return [self.array count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +109,9 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        cell.textLabel.text = [self.array objectAtIndex:[indexPath row]];
+        MainColumnObject *cellObj = [self fromColumnArrayGetObjectBySection:[indexPath section]];
+        MainTitleObject *thisTitle = [cellObj.columnDetails objectAtIndex:[indexPath row]];
+        cell.textLabel.text = thisTitle.introduce;
         return cell;
     }
 }
@@ -114,46 +127,45 @@
     {
         return MAIN_TITLE_HEIGHT;
     }
-    return 35;
+    return MAIN_COLUMN_HEIGHT;
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if (section == 0) {
+        return 0;
+    }
+    return 20.0f;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-}
-*/
+    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:newView.frame];
+    [button setBackgroundColor:[UIColor blackColor]];
+    [button setAlpha:0.6f];
+    [button addTarget:self action:@selector(columnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 100, 20)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Arial" size:13];
+    
+    if (section > 0) {
+        MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:section];
+        label.text = columnObj.columnName;
+        button.tag = columnObj.columnId;
+    }
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    [newView addSubview:label];
+    [newView addSubview:button];
+    return newView;
 }
-*/
+
+- (void) columnClick: (UIButton *) clickButton
+{
+    NSLog(@"%d",clickButton.tag);
+}
 
 #pragma mark - Table view delegate
 
@@ -171,6 +183,7 @@
 - (void)reloadTableViewDataSource
 {
     [self loadTitleArray];
+    [self loadColumnArray];
     [self.tableView reloadData];
     _reloading = YES;
 }

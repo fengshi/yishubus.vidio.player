@@ -39,13 +39,13 @@
 }
 
 
-- (void) setUp
-{
-    NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
-    NetworkData *network = [[NetworkData alloc] init];
-    NSMutableArray *data = [network mainTitleData:titleUrl];
-    self.imageViews = data;
-}
+//- (void) setUp
+//{
+//    NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
+//    NetworkData *network = [[NetworkData alloc] init];
+//    NSMutableArray *data = [network mainTitleData:titleUrl];
+//    self.imageViews = data;
+//}
 
 //- (void) drawRect:(CGRect)rect
 //{

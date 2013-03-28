@@ -15,7 +15,7 @@
     BOOL _reloading;
 }
 
-@property (strong, nonatomic) NSArray *array;
+@property (strong, nonatomic) NSMutableArray *columnArray;
 @property (retain, nonatomic) NSMutableArray *titleArray;
 
 - (void)reloadTableViewDataSource;

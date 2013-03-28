@@ -10,7 +10,7 @@
 
 @interface NetworkData : NSObject
 
-- (NSMutableArray *) mainTitleData: (NSString *) dataUrl;
-- (NSMutableArray *) mainColumnData: (NSString *) dataUrl;
++ (NSMutableArray *) mainTitleData: (NSString *) dataUrl;
++ (NSMutableArray *) mainColumnData: (NSString *) dataUrl;
 
 @end
