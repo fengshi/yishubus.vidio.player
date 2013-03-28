@@ -55,8 +55,6 @@
     if (!error) {
         NSString *jsonResult = [request responseString];
         NSArray *resultArray = [jsonResult objectFromJSONString];
-        NSLog(@"%@",[[jsonResult objectFromJSONString] class]);
-        NSLog(@"%@",jsonResult);
         NSDictionary *dataDictionary = [resultArray objectAtIndex:0];
         if ([[dataDictionary objectForKey:@"id"] isEqual:@"column"]) {
             NSArray *data = [dataDictionary objectForKey:@"data"];

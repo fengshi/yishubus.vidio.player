@@ -41,7 +41,6 @@
 {
     NSString *columnUrl = [RequestURL getUrlByKey:MAIN_COLUMN_URL];
     self.columnArray = [NetworkData mainColumnData:columnUrl];
-    NSLog(@"%d",self.columnArray.count);
 }
 
 - (MainColumnObject *) fromColumnArrayGetObjectBySection:(NSInteger) section
@@ -135,21 +134,21 @@
     if (section == 0) {
         return 0;
     }
-    return 20.0f;
+    return MAIN_SECTION_HEIGHT;
 }
 
 -(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, MAIN_SECTION_HEIGHT)];
     
     UIButton *button = [[UIButton alloc] initWithFrame:newView.frame];
-    [button setBackgroundColor:[UIColor blackColor]];
-    [button setAlpha:0.6f];
+    [button setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
     [button addTarget:self action:@selector(columnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 100, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 100, MAIN_SECTION_HEIGHT)];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Arial" size:13];
+    label.textColor = MAIN_SECTION_TEXT_COLOR;
+    label.font = [UIFont fontWithName:@"Arial" size:MAIN_SECTION_TEXT_SIZE];
     
     if (section > 0) {
         MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:section];
@@ -157,8 +156,8 @@
         button.tag = columnObj.columnId;
     }
 
-    [newView addSubview:label];
     [newView addSubview:button];
+    [newView addSubview:label];
     return newView;
 }
 
