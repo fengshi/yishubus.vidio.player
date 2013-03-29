@@ -17,7 +17,7 @@
 @end
 
 @implementation MainTitleCell
-@synthesize scrollView = _scrollView;
+@synthesize myScrollView = _myScrollView;
 @synthesize pagecontrol = _pagecontrol;
 @synthesize label = _label;
 @synthesize imageViews = _imageViews;
@@ -38,49 +38,21 @@
     // Configure the view for the selected state
 }
 
-
-//- (void) setUp
-//{
-//    NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
-//    NetworkData *network = [[NetworkData alloc] init];
-//    NSMutableArray *data = [network mainTitleData:titleUrl];
-//    self.imageViews = data;
-//}
-
-//- (void) drawRect:(CGRect)rect
-//{
-//    [self setUp];
-//    self.scrollView.pagingEnabled = YES;
-//    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
-//    self.scrollView.showsHorizontalScrollIndicator = NO;
-//    self.scrollView.showsVerticalScrollIndicator = NO;
-//    self.scrollView.scrollsToTop = NO;
-//    self.scrollView.delegate = self;
-//    
-//    self.pagecontrol.numberOfPages = [self.imageViews count];
-//    self.pagecontrol.currentPage = 0;
-//    
-//    MainTitleObject *mo = [self.imageViews objectAtIndex:0];
-//    self.label.text = mo.introduce;
-//    
-//    [self createPages];
-//}
-
 - (void) initDraw:(NSMutableArray *) array
 {
-    if ([[self.scrollView subviews] count] > 0) {
-        for (UIView *subview in [self.scrollView subviews]) {
+    if ([[self.myScrollView subviews] count] > 0) {
+        for (UIView *subview in [self.myScrollView subviews]) {
             [subview removeFromSuperview];
         }
     }
     self.imageViews = array;
     
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.scrollsToTop = NO;
-    self.scrollView.delegate = self;
+    self.myScrollView.pagingEnabled = YES;
+    self.myScrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
+    self.myScrollView.showsHorizontalScrollIndicator = NO;
+    self.myScrollView.showsVerticalScrollIndicator = NO;
+    self.myScrollView.scrollsToTop = NO;
+    self.myScrollView.delegate = self;
 
     self.pagecontrol.numberOfPages = [self.imageViews count];
     self.pagecontrol.currentPage = 0;
@@ -93,7 +65,7 @@
 
 - (void) createPages
 {
-    CGRect pageRect = self.scrollView.frame;
+    CGRect pageRect = self.myScrollView.frame;
     for (MainTitleObject *mm in self.imageViews) {
         UIImageView *view = [[UIImageView alloc] initWithFrame:pageRect];
         view.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mm.imageUrl]]];
@@ -108,12 +80,12 @@
 
 - (void) scrollViewWidthPage: (UIImageView *)page
 {
-    int defaultCount = [[self.scrollView subviews] count];
-    CGRect bounds = self.scrollView.bounds;
+    int defaultCount = [[self.myScrollView subviews] count];
+    CGRect bounds = self.myScrollView.bounds;
     bounds.origin.x = bounds.size.width * defaultCount;
     bounds.origin.y = 0;
     page.frame = bounds;
-    [self.scrollView addSubview:page];
+    [self.myScrollView addSubview:page];
 }
 
 - (void) touchImageViewAction:(UITapGestureRecognizer *)recognizer

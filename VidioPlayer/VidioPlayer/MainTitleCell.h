@@ -21,7 +21,7 @@
     UILabel *label;
 }
 
-@property (strong,nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong,nonatomic) IBOutlet UIScrollView *myScrollView;
 @property (strong,nonatomic) IBOutlet UIPageControl *pagecontrol;
 @property (strong,nonatomic) IBOutlet UILabel *label;
 
