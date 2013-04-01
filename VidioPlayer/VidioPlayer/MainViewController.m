@@ -13,6 +13,7 @@
 #import "RequestURL.h"
 #import "MainTitleObject.h"
 #import "MainColumnObject.h"
+#import "MainColumnCell.h"
 
 @interface MainViewController()
 
@@ -26,21 +27,28 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.navigationItem.title = @"首页";
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil tag:0];
+        [item setFinishedSelectedImage:[UIImage imageNamed:@"bar1"] withFinishedUnselectedImage:nil];
+        self.tabBarItem = item;
     }
     return self;
 }
 
-- (void) loadTitleArray
+- (void) loadArrays
 {
-    NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
-    self.titleArray = [NetworkData mainTitleData:titleUrl];
-}
-
-- (void) loadColumnArray
-{
-    NSString *columnUrl = [RequestURL getUrlByKey:MAIN_COLUMN_URL];
-    self.columnArray = [NetworkData mainColumnData:columnUrl];
+    dispatch_queue_t downloadArray = dispatch_queue_create("mainArray", nil);
+    dispatch_async(downloadArray, ^{
+        NSString *titleUrl = [RequestURL getUrlByKey:MAIN_TITLE_URL];
+        self.titleArray = [NetworkData mainTitleData:titleUrl];
+        
+        NSString *columnUrl = [RequestURL getUrlByKey:MAIN_COLUMN_URL];
+        self.columnArray = [NetworkData mainColumnData:columnUrl];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
 }
 
 - (MainColumnObject *) fromColumnArrayGetObjectBySection:(NSInteger) section
@@ -52,9 +60,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self loadArrays];
     
-    [self loadTitleArray];
-    [self loadColumnArray];
+    [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
     
     if (_refreshHeaderView == nil)
     {
@@ -82,19 +91,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 1;
-    } else {
-        MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:section];
-        return [columnObj.columnDetails count];
-    }
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
     static NSString *mainTitle = @"maintitle";
+    static NSString *mainColumn = @"maincolumn";
     if (indexPath.section == 0) {
         UINib *nib = [UINib nibWithNibName:@"MainTitleCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:mainTitle];
@@ -104,18 +107,23 @@
         cell.delegate = self;
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-        MainColumnObject *cellObj = [self fromColumnArrayGetObjectBySection:[indexPath section]];
-        MainTitleObject *thisTitle = [cellObj.columnDetails objectAtIndex:[indexPath row]];
-        cell.textLabel.text = thisTitle.introduce;
+        UINib *nib = [UINib nibWithNibName:@"MainColumnCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:mainColumn];
+        
+        MainColumnCell *cell = [tableView dequeueReusableCellWithIdentifier:mainColumn];
+        MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:indexPath.section];
+        [cell initDraw:[columnObj columnDetails]];
+        cell.delegate = self;
         return cell;
     }
 }
 
-- (void) clickedImageSend:(int)mid
+- (void) clickedTitleImageSend:(int)mid
+{
+    NSLog(@"aaaa=%d",mid);
+}
+
+- (void) clickedColumnImageSend:(int)mid
 {
     NSLog(@"aaaa=%d",mid);
 }
@@ -181,8 +189,7 @@
 
 - (void)reloadTableViewDataSource
 {
-    [self loadTitleArray];
-    [self loadColumnArray];
+    [self loadArrays];
     [self.tableView reloadData];
     _reloading = YES;
 }

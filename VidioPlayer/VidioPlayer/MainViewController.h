@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MainTitleCell.h"
+#import "MainColumnCell.h"
 #import "EGORefreshTableHeaderView.h"
 
-@interface MainViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource,MainTitleDelegate,EGORefreshTableHeaderDelegate> {
+@interface MainViewController : UITableViewController <MainTitleDelegate,MainColumnDelegate,EGORefreshTableHeaderDelegate> {
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
 }

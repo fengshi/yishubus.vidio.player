@@ -47,6 +47,7 @@
     }
     self.imageViews = array;
     
+    [self.myScrollView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
     self.myScrollView.pagingEnabled = YES;
     self.myScrollView.contentSize = CGSizeMake(self.frame.size.width * [self.imageViews count], self.frame.size.height);
     self.myScrollView.showsHorizontalScrollIndicator = NO;
@@ -91,9 +92,9 @@
 - (void) touchImageViewAction:(UITapGestureRecognizer *)recognizer
 {
     UIView *view = [recognizer view];
-    if ([self.delegate respondsToSelector:@selector(clickedImageSend:)])
+    if ([self.delegate respondsToSelector:@selector(clickedTitleImageSend:)])
     {
-        [self.delegate clickedImageSend:view.tag];
+        [self.delegate clickedTitleImageSend:view.tag];
     }
 }
 

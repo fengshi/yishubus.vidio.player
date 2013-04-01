@@ -21,6 +21,9 @@
     
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation, nil];
     
+//    [(UITabBarItem *)[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:@"首页"];
+//    [(UITabBarItem *)[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar2" ofType:@"png"]]];
+    
     [self.window addSubview:self.tabBarController.view];
     
     self.window.backgroundColor = [UIColor whiteColor];

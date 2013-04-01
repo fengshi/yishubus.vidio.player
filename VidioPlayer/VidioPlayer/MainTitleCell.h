@@ -11,12 +11,12 @@
 @protocol MainTitleDelegate <NSObject>
 
 @optional
-- (void) clickedImageSend: (int) mid;
+- (void) clickedTitleImageSend: (int) mid;
 
 @end
 @interface MainTitleCell : UITableViewCell <UIScrollViewDelegate>
 {
-    UIScrollView *scrollView;
+    UIScrollView *myScrollView;
     UIPageControl *pagecontrol;
     UILabel *label;
 }
