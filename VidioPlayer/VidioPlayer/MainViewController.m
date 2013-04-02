@@ -29,7 +29,7 @@
     if (self) {
         self.navigationItem.title = @"艺术巴士";
         UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil tag:0];
-        [item setFinishedSelectedImage:[UIImage imageNamed:@"bar1"] withFinishedUnselectedImage:nil];
+        [item setFinishedSelectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]] withFinishedUnselectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]]];
         self.tabBarItem = item;
     }
     return self;
