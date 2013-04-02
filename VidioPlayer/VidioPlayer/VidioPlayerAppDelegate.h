@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VidioPlayerAppDelegate : UIResponder <UIApplicationDelegate>
+@class Reachability;
+
+@interface VidioPlayerAppDelegate : UIResponder <UIApplicationDelegate> {
+    UIImageView *startImageView;
+    Reachability *hostReach;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
-
-@property (retain, nonatomic) UIImageView *startImageView;
 
 @end

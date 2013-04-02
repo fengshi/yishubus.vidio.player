@@ -8,12 +8,17 @@
 
 #import "VidioPlayerAppDelegate.h"
 #import "MainViewController.h"
+#import "Reachability.h"
+#import "Constants.h"
 
 @implementation VidioPlayerAppDelegate
-@synthesize startImageView = _startImageView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachChanged:) name:kReachabilityChangedNotification object:nil];
+    hostReach = [Reachability reachabilityWithHostName:MAIN];
+    [hostReach startNotifier];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.tabBarController = [[UITabBarController alloc] init];
     
@@ -30,19 +35,47 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.startImageView = [[UIImageView alloc] initWithFrame:self.window.frame];
-    self.startImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]];
+    startImageView = [[UIImageView alloc] initWithFrame:self.window.frame];
+    startImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]];
     
-    [self.window addSubview:self.startImageView];
+    [self.window addSubview:startImageView];
     [self performSelector:@selector(theAnimation) withObject:nil afterDelay:5];
     
     return YES;
 }
 
+- (void) reachChanged: (NSNotification *)note
+{
+    Reachability *curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    
+    NSString *statusString;
+    
+    switch (status) {
+        case NotReachable:
+            statusString = @"您没有网络连接!";
+            break;
+        case ReachableViaWiFi:
+            statusString = @"您正在使用WiFi网络!";
+            break;
+        case ReachableViaWWAN:
+            statusString = @"您正在使用3G网络!";
+            break;
+        default:
+            break;
+    }
+    
+    if (status == NotReachable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络正在连接" message:statusString delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 - (void) theAnimation
 {
     [UIView animateWithDuration:1.0 animations:^{
-        self.startImageView.frame = CGRectMake(self.window.frame.origin.x, self.window.frame.size.height, -self.window.frame.size.width, -self.window.frame.size.height);
+        startImageView.frame = CGRectMake(self.window.frame.origin.x, self.window.frame.size.height, -self.window.frame.size.width, -self.window.frame.size.height);
     }];
 }
 
