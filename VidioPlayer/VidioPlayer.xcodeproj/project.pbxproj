@@ -27,9 +27,6 @@
 		8BB0E87816F314470049F92E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB0E87616F314470049F92E /* InfoPlist.strings */; };
 		8BB0E87A16F314470049F92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E87916F314470049F92E /* main.m */; };
 		8BB0E87E16F314470049F92E /* VidioPlayerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E87D16F314470049F92E /* VidioPlayerAppDelegate.m */; };
-		8BB0E88016F314470049F92E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB0E87F16F314470049F92E /* Default.png */; };
-		8BB0E88216F314470049F92E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB0E88116F314470049F92E /* Default@2x.png */; };
-		8BB0E88416F314470049F92E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB0E88316F314470049F92E /* Default-568h@2x.png */; };
 		8BB0E8B016F3150E0049F92E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8AF16F3150E0049F92E /* libz.dylib */; };
 		8BB0E8B216F315160049F92E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8B116F315160049F92E /* libxml2.dylib */; };
 		8BB0E8B416F3151E0049F92E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E8B316F3151E0049F92E /* SystemConfiguration.framework */; };
@@ -50,6 +47,9 @@
 		8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */; };
 		8BDEB48416F7086C00ECB6E8 /* MainTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */; };
 		8BDEB48816F70F4700ECB6E8 /* RequestURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48716F70F4700ECB6E8 /* RequestURL.m */; };
+		8BE84D68170A8F04000B340D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D65170A8F04000B340D /* Default-568h@2x.png */; };
+		8BE84D69170A8F04000B340D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D66170A8F04000B340D /* Default.png */; };
+		8BE84D6A170A8F04000B340D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D67170A8F04000B340D /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,9 +81,6 @@
 		8BB0E87B16F314470049F92E /* VidioPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VidioPlayer-Prefix.pch"; sourceTree = "<group>"; };
 		8BB0E87C16F314470049F92E /* VidioPlayerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VidioPlayerAppDelegate.h; sourceTree = "<group>"; };
 		8BB0E87D16F314470049F92E /* VidioPlayerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VidioPlayerAppDelegate.m; sourceTree = "<group>"; };
-		8BB0E87F16F314470049F92E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8BB0E88116F314470049F92E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8BB0E88316F314470049F92E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8BB0E8AF16F3150E0049F92E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8BB0E8B116F315160049F92E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8BB0E8B316F3151E0049F92E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -123,6 +120,9 @@
 		8BDEB48316F7086C00ECB6E8 /* MainTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTitleCell.xib; sourceTree = "<group>"; };
 		8BDEB48616F70F4700ECB6E8 /* RequestURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestURL.h; sourceTree = "<group>"; };
 		8BDEB48716F70F4700ECB6E8 /* RequestURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestURL.m; sourceTree = "<group>"; };
+		8BE84D65170A8F04000B340D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8BE84D66170A8F04000B340D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8BE84D67170A8F04000B340D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,13 +251,13 @@
 		8BB0E87416F314470049F92E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8BE84D65170A8F04000B340D /* Default-568h@2x.png */,
+				8BE84D66170A8F04000B340D /* Default.png */,
+				8BE84D67170A8F04000B340D /* Default@2x.png */,
 				8BB0E87516F314470049F92E /* VidioPlayer-Info.plist */,
 				8BB0E87616F314470049F92E /* InfoPlist.strings */,
 				8BB0E87916F314470049F92E /* main.m */,
 				8BB0E87B16F314470049F92E /* VidioPlayer-Prefix.pch */,
-				8BB0E87F16F314470049F92E /* Default.png */,
-				8BB0E88116F314470049F92E /* Default@2x.png */,
-				8BB0E88316F314470049F92E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -373,9 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB0E87816F314470049F92E /* InfoPlist.strings in Resources */,
-				8BB0E88016F314470049F92E /* Default.png in Resources */,
-				8BB0E88216F314470049F92E /* Default@2x.png in Resources */,
-				8BB0E88416F314470049F92E /* Default-568h@2x.png in Resources */,
 				8BDEB48416F7086C00ECB6E8 /* MainTitleCell.xib in Resources */,
 				8B8E554F16FFF9FB0092B1CA /* blackArrow.png in Resources */,
 				8B8E555016FFF9FB0092B1CA /* blackArrow@2x.png in Resources */,
@@ -386,6 +383,9 @@
 				8B8E555516FFF9FB0092B1CA /* whiteArrow.png in Resources */,
 				8B8E555616FFF9FB0092B1CA /* whiteArrow@2x.png in Resources */,
 				8B976DF01709469700ED5C7A /* MainColumnCell.xib in Resources */,
+				8BE84D68170A8F04000B340D /* Default-568h@2x.png in Resources */,
+				8BE84D69170A8F04000B340D /* Default.png in Resources */,
+				8BE84D6A170A8F04000B340D /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

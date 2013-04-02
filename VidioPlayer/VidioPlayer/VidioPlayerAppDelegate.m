@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 
 @implementation VidioPlayerAppDelegate
+@synthesize startImageView = _startImageView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -19,16 +20,30 @@
     MainViewController *mainController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
     
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation, nil];
+    MainViewController *tmpController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *tmpNavigation = [[UINavigationController alloc] initWithRootViewController:tmpController];
     
-//    [(UITabBarItem *)[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:@"首页"];
-//    [(UITabBarItem *)[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar2" ofType:@"png"]]];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,tmpNavigation, nil];
     
     [self.window addSubview:self.tabBarController.view];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.startImageView = [[UIImageView alloc] initWithFrame:self.window.frame];
+    self.startImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]];
+    
+    [self.window addSubview:self.startImageView];
+    [self performSelector:@selector(theAnimation) withObject:nil afterDelay:5];
+    
     return YES;
+}
+
+- (void) theAnimation
+{
+    [UIView animateWithDuration:1.0 animations:^{
+        self.startImageView.frame = CGRectMake(self.window.frame.origin.x, self.window.frame.size.height, -self.window.frame.size.width, -self.window.frame.size.height);
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

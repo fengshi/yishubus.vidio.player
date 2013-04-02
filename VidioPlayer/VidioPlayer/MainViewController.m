@@ -27,7 +27,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.navigationItem.title = @"首页";
+        self.navigationItem.title = @"艺术巴士";
         UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil tag:0];
         [item setFinishedSelectedImage:[UIImage imageNamed:@"bar1"] withFinishedUnselectedImage:nil];
         self.tabBarItem = item;
@@ -172,19 +172,6 @@
 - (void) columnClick: (UIButton *) clickButton
 {
     NSLog(@"%d",clickButton.tag);
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 - (void)reloadTableViewDataSource

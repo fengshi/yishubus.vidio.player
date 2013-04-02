@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
+@property (retain, nonatomic) UIImageView *startImageView;
+
 @end
