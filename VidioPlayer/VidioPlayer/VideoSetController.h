@@ -10,4 +10,6 @@
 
 @interface VideoSetController : UIViewController
 
+- (void) initDraw: (int) mid;
+
 @end

@@ -14,6 +14,7 @@
 #import "MainTitleObject.h"
 #import "MainColumnObject.h"
 #import "MainColumnCell.h"
+#import "VideoSetController.h"
 
 @interface MainViewController()
 
@@ -120,7 +121,9 @@
 
 - (void) clickedTitleImageSend:(int)mid
 {
-    NSLog(@"aaaa=%d",mid);
+    VideoSetController *controller = [[VideoSetController alloc] init];
+    [controller initDraw:mid];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void) clickedColumnImageSend:(int)mid

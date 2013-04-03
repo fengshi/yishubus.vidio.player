@@ -52,6 +52,8 @@
 		8BE84D6A170A8F04000B340D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D67170A8F04000B340D /* Default@2x.png */; };
 		8BE84D73170AE633000B340D /* bar1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D71170AE633000B340D /* bar1.png */; };
 		8BE84D74170AE633000B340D /* bar1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D72170AE633000B340D /* bar1@2x.png */; };
+		8BE84D79170BDC74000B340D /* VideoSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE84D78170BDC74000B340D /* VideoSetController.m */; };
+		8BE84D7C170BDCE4000B340D /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE84D7B170BDCE4000B340D /* SDSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,10 @@
 		8BE84D67170A8F04000B340D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8BE84D71170AE633000B340D /* bar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar1.png; sourceTree = "<group>"; };
 		8BE84D72170AE633000B340D /* bar1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar1@2x.png"; sourceTree = "<group>"; };
+		8BE84D77170BDC74000B340D /* VideoSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSetController.h; sourceTree = "<group>"; };
+		8BE84D78170BDC74000B340D /* VideoSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSetController.m; sourceTree = "<group>"; };
+		8BE84D7A170BDCE4000B340D /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
+		8BE84D7B170BDCE4000B340D /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +254,8 @@
 				8B976DEC1709466200ED5C7A /* MainColumnCell.h */,
 				8B976DED1709466300ED5C7A /* MainColumnCell.m */,
 				8B976DEF1709469700ED5C7A /* MainColumnCell.xib */,
+				8BE84D77170BDC74000B340D /* VideoSetController.h */,
+				8BE84D78170BDC74000B340D /* VideoSetController.m */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -319,6 +327,8 @@
 		8BDEB48516F70F0C00ECB6E8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				8BE84D7A170BDCE4000B340D /* SDSegmentedControl.h */,
+				8BE84D7B170BDCE4000B340D /* SDSegmentedControl.m */,
 				8BDEB47D16F706F100ECB6E8 /* Constants.h */,
 				8BDEB48616F70F4700ECB6E8 /* RequestURL.h */,
 				8BDEB48716F70F4700ECB6E8 /* RequestURL.m */,
@@ -424,6 +434,8 @@
 				8B8E554E16FFF9FB0092B1CA /* EGORefreshTableHeaderView.m in Sources */,
 				8B8E555B1702FBAD0092B1CA /* MainColumnObject.m in Sources */,
 				8B976DEE1709466300ED5C7A /* MainColumnCell.m in Sources */,
+				8BE84D79170BDC74000B340D /* VideoSetController.m in Sources */,
+				8BE84D7C170BDCE4000B340D /* SDSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

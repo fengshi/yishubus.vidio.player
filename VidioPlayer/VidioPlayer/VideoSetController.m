@@ -7,8 +7,13 @@
 //
 
 #import "VideoSetController.h"
+#import "SDSegmentedControl.h"
+#import "Constants.h"
 
-@interface VideoSetController ()
+@interface VideoSetController () {
+    SDSegmentedControl *segmentControl;
+    UIImageView *titleView;
+}
 
 @end
 
@@ -23,10 +28,22 @@
     return self;
 }
 
+- (void) initDraw: (int) mid
+{
+    NSLog(@"%d",mid);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, MAIN_TITLE_HEIGHT)];
+    segmentControl = [[SDSegmentedControl alloc] initWithItems:[[NSArray alloc] initWithObjects:@"详情",@"视频",@"作者", nil]];
+    segmentControl.frame = CGRectMake(0, MAIN_TITLE_HEIGHT, self.view.frame.size.width, MAIN_SECTION_HEIGHT);
+    segmentControl.selectedSegmentIndex = 0;
+    
+    [self.view addSubview:titleView];
+    [self.view addSubview:segmentControl];
+
 }
 
 - (void)didReceiveMemoryWarning
