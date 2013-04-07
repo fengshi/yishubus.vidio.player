@@ -10,4 +10,9 @@
 
 @interface VideoSetObject : NSObject
 
+@property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) NSString *introduce;
+@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSString *videoUrl;
+
 @end

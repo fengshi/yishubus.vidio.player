@@ -8,9 +8,11 @@
 
 #import "NetworkData.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import "JSONKit.h"
 #import "MainTitleObject.h"
 #import "MainColumnObject.h"
+#import "VideoSetObject.h"
 
 @implementation NetworkData
 
@@ -83,6 +85,50 @@
             }
             return result;
         }
+    }
+    return nil;
+}
+
++ (NSMutableArray *) videoSetData:(NSString *)dataUrl mid: (int) mid
+{
+    NSString *stringUrl = [NSString stringWithFormat:@"&mid=%d",mid];
+    NSURL *url = [NSURL URLWithString:[dataUrl stringByAppendingString:stringUrl]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString *jsonRequest = [request responseString];
+        NSArray *resultArray = [jsonRequest objectFromJSONString];
+        NSMutableArray *result = [[NSMutableArray alloc]init];
+        
+        NSDictionary *imageDictionary = [resultArray objectAtIndex:0];
+        NSString *imageUrl = [imageDictionary objectForKey:@"imageUrl"];
+        [result addObject:imageUrl];
+        
+        NSDictionary *introduceDictionary = [resultArray objectAtIndex:1];
+        NSString *introduce = [introduceDictionary objectForKey:@"introduce"];
+        [result addObject:introduce];
+        
+        NSDictionary *videoDictionary = [resultArray objectAtIndex:2];
+        NSArray *videoArray = [videoDictionary objectForKey:@"video"];
+        NSMutableArray *videoMutableArray = [[NSMutableArray alloc] init];
+        
+        for (int i=0; i<[videoArray count]; i++) {
+            NSDictionary *video = [videoArray objectAtIndex:i];
+            VideoSetObject *object = [[VideoSetObject alloc] init];
+            object.introduce = [video objectForKey:@"title"];
+            object.imageUrl = [video objectForKey:@"imageUrl"];
+            object.detail = [video objectForKey:@"detail"];
+            object.videoUrl = [video objectForKey:@"videoUrl"];
+            
+            [videoMutableArray addObject:object];
+        }
+        [result addObject:videoMutableArray];
+        
+        NSDictionary *authorDictionary = [resultArray objectAtIndex:3];
+        NSString *author = [authorDictionary objectForKey:@"author"];
+        [result addObject:author];
+        return result;
     }
     return nil;
 }

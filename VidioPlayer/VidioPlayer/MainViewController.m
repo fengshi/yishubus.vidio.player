@@ -180,7 +180,7 @@
 - (void)reloadTableViewDataSource
 {
     [self loadArrays];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     _reloading = YES;
 }
 
@@ -204,7 +204,7 @@
 - (void) egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
 {
     [self reloadTableViewDataSource];
-    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2.0];
 }
 
 - (BOOL) egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view

@@ -54,6 +54,7 @@
 		8BE84D74170AE633000B340D /* bar1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE84D72170AE633000B340D /* bar1@2x.png */; };
 		8BE84D79170BDC74000B340D /* VideoSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE84D78170BDC74000B340D /* VideoSetController.m */; };
 		8BE84D7C170BDCE4000B340D /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE84D7B170BDCE4000B340D /* SDSegmentedControl.m */; };
+		8BFBEFBB17115B54004F0592 /* VideoSetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBEFBA17115B54004F0592 /* VideoSetObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,8 @@
 		8BE84D78170BDC74000B340D /* VideoSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSetController.m; sourceTree = "<group>"; };
 		8BE84D7A170BDCE4000B340D /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
 		8BE84D7B170BDCE4000B340D /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
+		8BFBEFB917115B54004F0592 /* VideoSetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSetObject.h; sourceTree = "<group>"; };
+		8BFBEFBA17115B54004F0592 /* VideoSetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSetObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,8 @@
 				8B976DEF1709469700ED5C7A /* MainColumnCell.xib */,
 				8BE84D77170BDC74000B340D /* VideoSetController.h */,
 				8BE84D78170BDC74000B340D /* VideoSetController.m */,
+				8BFBEFB917115B54004F0592 /* VideoSetObject.h */,
+				8BFBEFBA17115B54004F0592 /* VideoSetObject.m */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				8B976DEE1709466300ED5C7A /* MainColumnCell.m in Sources */,
 				8BE84D79170BDC74000B340D /* VideoSetController.m in Sources */,
 				8BE84D7C170BDCE4000B340D /* SDSegmentedControl.m in Sources */,
+				8BFBEFBB17115B54004F0592 /* VideoSetObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

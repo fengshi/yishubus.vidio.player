@@ -9,5 +9,9 @@
 #import "VideoSetObject.h"
 
 @implementation VideoSetObject
+@synthesize imageUrl = _imageUrl;
+@synthesize introduce = _introduce;
+@synthesize detail = _detail;
+@synthesize videoUrl = _videoUrl;
 
 @end
