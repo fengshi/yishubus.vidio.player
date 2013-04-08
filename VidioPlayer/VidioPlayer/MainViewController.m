@@ -65,6 +65,7 @@
     [self loadArrays];
     
     [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     if (_refreshHeaderView == nil)
     {

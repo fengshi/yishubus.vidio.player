@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 com.yishubus.vidioplayer. All rights reserved.
 //
 
-#define MAIN                            @"http://192.168.0.105:8080/"
+#define MAIN                            @"http://192.168.0.107:8080/"
 
 #define MAIN_TITLE_URL                  1
 #define MAIN_COLUMN_URL                 2
@@ -23,6 +23,8 @@
 #define MAIN_SECTION_IMAGE_HEIGHT       MAIN_COLUMN_HEIGHT-MAIN_SECTION_WIDTH_EMPTY*2
 
 #define MAIN_SECTION_BACKGROUND_COLOR   [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1]
+
 #define MAIN_SECTION_TEXT_COLOR         [UIColor whiteColor]
 
 #define VIDEO_SEGMENTED_HEIGHT          34
+#define VIDEO_SEGMENTED_BACKGROUND_COLOR   [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1]

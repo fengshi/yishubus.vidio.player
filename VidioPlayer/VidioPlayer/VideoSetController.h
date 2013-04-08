@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoSetController : UIViewController
+@interface VideoSetController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 - (void) initDraw: (int) mid;
 

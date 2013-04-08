@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0BC90E1712C1830031833E /* Hiragino Sans GB W6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B0BC90D1712C1830031833E /* Hiragino Sans GB W6.otf */; };
 		8B8E554E16FFF9FB0092B1CA /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E554416FFF9FB0092B1CA /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8B8E554F16FFF9FB0092B1CA /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E554616FFF9FB0092B1CA /* blackArrow.png */; };
 		8B8E555016FFF9FB0092B1CA /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E554716FFF9FB0092B1CA /* blackArrow@2x.png */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0BC90D1712C1830031833E /* Hiragino Sans GB W6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiragino Sans GB W6.otf"; sourceTree = "<group>"; };
 		8B8E554316FFF9FB0092B1CA /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		8B8E554416FFF9FB0092B1CA /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		8B8E554616FFF9FB0092B1CA /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		8BB0E87416F314470049F92E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B0BC90D1712C1830031833E /* Hiragino Sans GB W6.otf */,
 				8BE84D71170AE633000B340D /* bar1.png */,
 				8BE84D72170AE633000B340D /* bar1@2x.png */,
 				8BE84D65170A8F04000B340D /* Default-568h@2x.png */,
@@ -409,6 +412,7 @@
 				8BE84D6A170A8F04000B340D /* Default@2x.png in Resources */,
 				8BE84D73170AE633000B340D /* bar1.png in Resources */,
 				8BE84D74170AE633000B340D /* bar1@2x.png in Resources */,
+				8B0BC90E1712C1830031833E /* Hiragino Sans GB W6.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
