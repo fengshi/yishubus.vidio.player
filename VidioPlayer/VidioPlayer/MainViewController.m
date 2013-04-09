@@ -160,7 +160,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 100, MAIN_SECTION_HEIGHT)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = MAIN_SECTION_TEXT_COLOR;
-    label.font = [UIFont fontWithName:@"Arial" size:MAIN_SECTION_TEXT_SIZE];
+    label.font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:MAIN_SECTION_TEXT_SIZE];
     
     if (section > 0) {
         MainColumnObject *columnObj = [self fromColumnArrayGetObjectBySection:section];

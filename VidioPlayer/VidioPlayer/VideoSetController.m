@@ -112,7 +112,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     [label setNumberOfLines:0];
     
-    UIFont *font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:14];
+    UIFont *font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:MAIN_SECTION_TEXT_SIZE];
     CGSize size = cell.frame.size;
     CGSize labelSize = [[tableArray objectAtIndex:0] sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
     [label setFrame:CGRectMake(0, 5, labelSize.width, labelSize.height)];
