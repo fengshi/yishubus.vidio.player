@@ -43,6 +43,8 @@
 		8BB0E8D816F316F30049F92E /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8CC16F316F30049F92E /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8BB0E8D916F316F30049F92E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8D016F316F30049F92E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8BB0E8DD16F316FA0049F92E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0E8DC16F316FA0049F92E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8BB1FB781713B6920058FAC8 /* VideoSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1FB771713B6910058FAC8 /* VideoSetCell.m */; };
+		8BB1FB7A1713B6AD0058FAC8 /* VideoSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1FB791713B6AD0058FAC8 /* VideoSetCell.xib */; };
 		8BDEB47616F6FE6200ECB6E8 /* MainTitleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */; };
 		8BDEB47916F6FFD900ECB6E8 /* NetworkData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47816F6FFD900ECB6E8 /* NetworkData.m */; };
 		8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */; };
@@ -117,6 +119,9 @@
 		8BB0E8D016F316F30049F92E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8BB0E8DB16F316FA0049F92E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		8BB0E8DC16F316FA0049F92E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		8BB1FB761713B6910058FAC8 /* VideoSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSetCell.h; sourceTree = "<group>"; };
+		8BB1FB771713B6910058FAC8 /* VideoSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSetCell.m; sourceTree = "<group>"; };
+		8BB1FB791713B6AD0058FAC8 /* VideoSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoSetCell.xib; sourceTree = "<group>"; };
 		8BDEB47416F6FE6200ECB6E8 /* MainTitleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTitleObject.h; sourceTree = "<group>"; };
 		8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleObject.m; sourceTree = "<group>"; };
 		8BDEB47716F6FFD900ECB6E8 /* NetworkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkData.h; sourceTree = "<group>"; };
@@ -263,6 +268,9 @@
 				8BE84D78170BDC74000B340D /* VideoSetController.m */,
 				8BFBEFB917115B54004F0592 /* VideoSetObject.h */,
 				8BFBEFBA17115B54004F0592 /* VideoSetObject.m */,
+				8BB1FB761713B6910058FAC8 /* VideoSetCell.h */,
+				8BB1FB771713B6910058FAC8 /* VideoSetCell.m */,
+				8BB1FB791713B6AD0058FAC8 /* VideoSetCell.xib */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 				8BE84D73170AE633000B340D /* bar1.png in Resources */,
 				8BE84D74170AE633000B340D /* bar1@2x.png in Resources */,
 				8B0BC90E1712C1830031833E /* Hiragino Sans GB W6.otf in Resources */,
+				8BB1FB7A1713B6AD0058FAC8 /* VideoSetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +455,7 @@
 				8BE84D79170BDC74000B340D /* VideoSetController.m in Sources */,
 				8BE84D7C170BDCE4000B340D /* SDSegmentedControl.m in Sources */,
 				8BFBEFBB17115B54004F0592 /* VideoSetObject.m in Sources */,
+				8BB1FB781713B6920058FAC8 /* VideoSetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

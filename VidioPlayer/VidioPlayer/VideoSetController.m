@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "NetworkData.h"
 #import "RequestURL.h"
+#import "VideoSetObject.h"
 
 @interface VideoSetController () {
     SDSegmentedControl *segmentControl;
@@ -33,6 +34,12 @@
     return self;
 }
 
+- (void) myViewSetView
+{
+    [myTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [myTableView setBackgroundColor:VIDEO_SEGMENTED_BACKGROUND_COLOR];
+}
+
 - (void) initDraw: (int) mid
 {
     NSString *titleUrl = [RequestURL getUrlByKey:VIDEO_SET_URL];
@@ -47,18 +54,19 @@
     
     [segmentControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     
-    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MAIN_TITLE_HEIGHT + VIDEO_SEGMENTED_HEIGHT, self.view.frame.size.width, self.view.frame.size.height - MAIN_TITLE_HEIGHT - VIDEO_SEGMENTED_HEIGHT)];
-    [myTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [myTableView setBackgroundColor:VIDEO_SEGMENTED_BACKGROUND_COLOR];
+    myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, MAIN_TITLE_HEIGHT + VIDEO_SEGMENTED_HEIGHT, self.view.frame.size.width, self.view.frame.size.height - MAIN_TITLE_HEIGHT - VIDEO_SEGMENTED_HEIGHT - 90)];
     
     myTableView.delegate = self;
     myTableView.dataSource = self;
     
     tableArray = [[NSMutableArray alloc] initWithObjects:[array objectAtIndex:1], nil];
     
+    [self myViewSetView];
+
     [self.view addSubview:titleView];
     [self.view addSubview:segmentControl];
     [self.view addSubview:myTableView];
+
 }
 
 - (void)viewDidLoad
@@ -76,11 +84,20 @@
 - (void) segmentAction: (UISegmentedControl *) seg
 {
     NSInteger index = seg.selectedSegmentIndex;
+    [self myViewSetView];
     if (index == 0) {
         tableArray = [[NSMutableArray alloc] initWithObjects:[array objectAtIndex:1], nil];
         [myTableView reloadData];
     } else if (index == 1) {
+        NSMutableArray *temp = [array objectAtIndex:2];
+        tableArray = [[NSMutableArray alloc] init];
+        for (int i=0; i<[temp count]; i++) {
+            [tableArray addObject:[temp objectAtIndex:i]];
+        }
 
+        [myTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        [myTableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+        [myTableView reloadData];
     } else if (index == 2) {
         tableArray = [[NSMutableArray alloc] initWithObjects:[array objectAtIndex:3], nil];
         [myTableView reloadData];
@@ -100,33 +117,52 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *videoSetCell = @"videoSetCell";
+    
+    if (segmentControl.selectedSegmentIndex == 1) {
+        UINib *nib = [UINib nibWithNibName:@"VideoSetCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:videoSetCell];
+        
+        VideoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:videoSetCell];
+        VideoSetObject *vo = [tableArray objectAtIndex:[indexPath row]];
+        [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.imageUrl]]] introduce:vo.introduce detail:vo.detail index:[indexPath row]];
+        cell.delegate = self;
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        [cell setSelected:NO];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [cell setFrame:CGRectMake(0, 0, myTableView.frame.size.width, myTableView.frame.size.height)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        [label setNumberOfLines:0];
+        
+        UIFont *font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:12];
+        CGSize size = cell.frame.size;
+        CGSize labelSize = [[tableArray objectAtIndex:0] sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        [label setFrame:CGRectMake(0, 5, labelSize.width, labelSize.height)];
+        [label setFont:font];
+        [label setTextColor:MAIN_SECTION_TEXT_COLOR];
+        [label setBackgroundColor:[UIColor clearColor]];
+        label.text = [tableArray objectAtIndex:0];
+        [cell addSubview:label];
+        return cell;
     }
-    [cell setSelected:NO];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    [cell setFrame:CGRectMake(0, 0, myTableView.frame.size.width, myTableView.frame.size.height)];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    [label setNumberOfLines:0];
-    
-    UIFont *font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:MAIN_SECTION_TEXT_SIZE];
-    CGSize size = cell.frame.size;
-    CGSize labelSize = [[tableArray objectAtIndex:0] sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
-    [label setFrame:CGRectMake(0, 5, labelSize.width, labelSize.height)];
-    [label setFont:font];
-    [label setTextColor:MAIN_SECTION_TEXT_COLOR];
-    [label setBackgroundColor:[UIColor clearColor]];
-    label.text = [tableArray objectAtIndex:0];
-    [cell addSubview:label];
-    return cell;
+
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
+}
+
+- (void) clickedVideoCellSend:(int)mid
+{
+    NSLog(@"%d",mid);
 }
 @end

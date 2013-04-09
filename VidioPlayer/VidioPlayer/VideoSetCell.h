@@ -8,6 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol VideoSetDelegate <NSObject>
+
+@optional
+- (void) clickedVideoCellSend: (int) mid;
+@end
+
 @interface VideoSetCell : UITableViewCell
+{
+    UILabel *introduceLabel;
+    UILabel *detailLabel;
+    UIImageView *imageView;
+    UIButton *button;
+}
+
+@property (strong,nonatomic) IBOutlet UILabel *introduceLabel;
+@property (strong,nonatomic) IBOutlet UILabel *detailLabel;
+@property (strong,nonatomic) IBOutlet UIImageView *imageView;
+@property (strong,nonatomic) IBOutlet UIButton *button;
+
+@property (nonatomic, weak) id<VideoSetDelegate> delegate;
+
+- (void) initDraw: (UIImage *) image introduce:(NSString *) introduce detail:(NSString *) detail index:(int) cellIndex;
+
+- (IBAction)clickView:(UIButton *)sender;
 
 @end

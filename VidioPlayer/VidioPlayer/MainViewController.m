@@ -129,7 +129,9 @@
 
 - (void) clickedColumnImageSend:(int)mid
 {
-    NSLog(@"aaaa=%d",mid);
+    VideoSetController *controller = [[VideoSetController alloc] init];
+    [controller initDraw:mid];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,7 +159,7 @@
     [button setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
     [button addTarget:self action:@selector(columnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 100, MAIN_SECTION_HEIGHT)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 3, 100, MAIN_SECTION_HEIGHT)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = MAIN_SECTION_TEXT_COLOR;
     label.font = [UIFont fontWithName:@"HiraginoSansGB-W6" size:MAIN_SECTION_TEXT_SIZE];
