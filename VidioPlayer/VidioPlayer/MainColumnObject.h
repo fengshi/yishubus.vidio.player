@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSMutableArray *columnDetails;
 @property (nonatomic) int columnId;
 
+@property (nonatomic, strong) NSString *columnImageUrl;
 @end

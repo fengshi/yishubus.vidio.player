@@ -29,6 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         self.navigationItem.title = @"艺术巴士";
+
         UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil tag:0];
         [item setFinishedSelectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]] withFinishedUnselectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]]];
         self.tabBarItem = item;
@@ -157,7 +158,7 @@
     
     UIButton *button = [[UIButton alloc] initWithFrame:newView.frame];
     [button setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
-    [button addTarget:self action:@selector(columnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [button addTarget:self action:@selector(columnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(22, 3, 100, MAIN_SECTION_HEIGHT)];
     label.backgroundColor = [UIColor clearColor];

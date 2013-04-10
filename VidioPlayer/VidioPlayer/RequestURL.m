@@ -20,6 +20,8 @@
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneColumn"];
         case VIDEO_SET_URL:
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneVideoSet"];
+        case CATELOG_URL:
+            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelog"];
         default:
             break;
     }

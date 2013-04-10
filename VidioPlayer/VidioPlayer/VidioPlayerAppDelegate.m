@@ -8,6 +8,7 @@
 
 #import "VidioPlayerAppDelegate.h"
 #import "MainViewController.h"
+#import "CatelogViewController.h"
 #import "Reachability.h"
 #import "Constants.h"
 
@@ -24,11 +25,13 @@
     
     MainViewController *mainController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
+    mainNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
     
-    MainViewController *tmpController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *tmpNavigation = [[UINavigationController alloc] initWithRootViewController:tmpController];
+    CatelogViewController *catelogController = [[CatelogViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *catelogNavigation = [[UINavigationController alloc] initWithRootViewController:catelogController];
+    catelogNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
     
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,tmpNavigation, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,catelogNavigation, nil];
     
     [self.window addSubview:self.tabBarController.view];
     

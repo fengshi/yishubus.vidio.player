@@ -132,4 +132,28 @@
     }
     return nil;
 }
+
++ (NSMutableArray *) catelogData: (NSString *) dataUrl
+{
+    NSURL *url = [NSURL URLWithString:dataUrl];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString *jsonResult = [request responseString];
+        NSArray *resultArray = [jsonResult objectFromJSONString];
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [resultArray count]; i++) {
+            NSDictionary *column = [resultArray objectAtIndex:i];
+            MainColumnObject *object = [[MainColumnObject alloc] init];
+            object.columnId = [[column objectForKey:@"columnId"] intValue];
+            object.columnName = [column objectForKey:@"columnName"];
+            object.columnImageUrl = [column objectForKey:@"imageUrl"];
+            [result addObject:object];
+        }
+        return result;
+    }
+    return nil;
+}
 @end

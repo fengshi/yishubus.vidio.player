@@ -7,6 +7,11 @@
 //
 
 #import "CatelogViewController.h"
+#import "Constants.h"
+#import "NetworkData.h"
+#import "RequestURL.h"
+#import "CatelogViewCell.h"
+#import "MainColumnObject.h"
 
 @interface CatelogViewController ()
 
@@ -18,20 +23,45 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.navigationItem.title = @"分类";
+        
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"分类" image:nil tag:0];
+        [item setFinishedSelectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]] withFinishedUnselectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]]];
+        self.tabBarItem = item;
     }
     return self;
+}
+
+- (void) loadArrays
+{
+    dispatch_queue_t downloadQueue = dispatch_queue_create("catelogArray", nil);
+    dispatch_async(downloadQueue, ^{
+        
+        NSString *titleUrl = [RequestURL getUrlByKey:CATELOG_URL];
+        catelogArray = [NetworkData catelogData:titleUrl];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self loadArrays];
+    
+    [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+
+    if (_refreshHeaderView == nil)
+    {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0 - self.tableView.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    
+    [_refreshHeaderView refreshLastUpdatedDate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,26 +74,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [catelogArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"catelogViewCell";
+    UINib *nib = [UINib nibWithNibName:@"CatelogViewCell" bundle:nil];
+    [tableView registerNib:nib forCellReuseIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    CatelogViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MainColumnObject *vo = [catelogArray objectAtIndex:[indexPath row]];
+    [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.columnImageUrl]]] introduce:vo.columnName];
     
     return cell;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 /*
@@ -116,6 +151,46 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    NSLog(@"%d",[indexPath row]);
+}
+
+- (void)reloadTableViewDataSource
+{
+    [self loadArrays];
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+    
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void) egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2.0];
+}
+
+- (BOOL) egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+
+- (NSDate *) egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
 }
 
 @end

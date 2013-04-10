@@ -15,12 +15,6 @@
 @end
 
 @interface VideoSetCell : UITableViewCell
-{
-    UILabel *introduceLabel;
-    UILabel *detailLabel;
-    UIImageView *imageView;
-    UIButton *button;
-}
 
 @property (strong,nonatomic) IBOutlet UILabel *introduceLabel;
 @property (strong,nonatomic) IBOutlet UILabel *detailLabel;

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGORefreshTableHeaderView.h"
 
-@interface CatelogViewController : UITableViewController
+@interface CatelogViewController : UITableViewController <EGORefreshTableHeaderDelegate> {
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+    NSMutableArray *catelogArray;
+}
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end

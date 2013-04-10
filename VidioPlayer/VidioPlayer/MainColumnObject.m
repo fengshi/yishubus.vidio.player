@@ -12,5 +12,6 @@
 @synthesize columnName = _columnName;
 @synthesize columnDetails = _columnDetails;
 @synthesize columnId = _columnId;
+@synthesize columnImageUrl = _columnImageUrl;
 
 @end
