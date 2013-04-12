@@ -14,5 +14,6 @@
 + (NSMutableArray *) mainColumnData: (NSString *) dataUrl;
 + (NSMutableArray *) videoSetData: (NSString *) dataUrl mid: (int) mid;
 + (NSMutableArray *) catelogData: (NSString *) dataUrl;
++ (NSMutableArray *) catelogDetailData: (NSString *) dataUrl columnId: (int) columnId number:(int)number;
 
 @end

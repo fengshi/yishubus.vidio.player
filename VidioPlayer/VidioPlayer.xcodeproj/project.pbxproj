@@ -48,6 +48,9 @@
 		8BB1FB7D17154D6C0058FAC8 /* CatelogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1FB7C17154D6B0058FAC8 /* CatelogViewController.m */; };
 		8BB1FB80171555B50058FAC8 /* CatelogViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1FB7F171555B50058FAC8 /* CatelogViewCell.m */; };
 		8BB1FB82171555CE0058FAC8 /* CatelogViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1FB81171555CE0058FAC8 /* CatelogViewCell.xib */; };
+		8BB1FB881717B5D60058FAC8 /* CatelogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1FB871717B5D60058FAC8 /* CatelogDetailViewController.m */; };
+		8BB1FB8B1717BA4F0058FAC8 /* CatelogDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1FB8A1717BA4F0058FAC8 /* CatelogDetailViewCell.m */; };
+		8BB1FB8D1717BA600058FAC8 /* CatelogDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1FB8C1717BA600058FAC8 /* CatelogDetailViewCell.xib */; };
 		8BDEB47616F6FE6200ECB6E8 /* MainTitleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */; };
 		8BDEB47916F6FFD900ECB6E8 /* NetworkData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB47816F6FFD900ECB6E8 /* NetworkData.m */; };
 		8BDEB48216F7083200ECB6E8 /* MainTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDEB48116F7083200ECB6E8 /* MainTitleCell.m */; };
@@ -130,6 +133,11 @@
 		8BB1FB7E171555B50058FAC8 /* CatelogViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatelogViewCell.h; sourceTree = "<group>"; };
 		8BB1FB7F171555B50058FAC8 /* CatelogViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatelogViewCell.m; sourceTree = "<group>"; };
 		8BB1FB81171555CE0058FAC8 /* CatelogViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatelogViewCell.xib; sourceTree = "<group>"; };
+		8BB1FB861717B5D60058FAC8 /* CatelogDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatelogDetailViewController.h; sourceTree = "<group>"; };
+		8BB1FB871717B5D60058FAC8 /* CatelogDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatelogDetailViewController.m; sourceTree = "<group>"; };
+		8BB1FB891717BA4F0058FAC8 /* CatelogDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatelogDetailViewCell.h; sourceTree = "<group>"; };
+		8BB1FB8A1717BA4F0058FAC8 /* CatelogDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatelogDetailViewCell.m; sourceTree = "<group>"; };
+		8BB1FB8C1717BA600058FAC8 /* CatelogDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatelogDetailViewCell.xib; sourceTree = "<group>"; };
 		8BDEB47416F6FE6200ECB6E8 /* MainTitleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTitleObject.h; sourceTree = "<group>"; };
 		8BDEB47516F6FE6200ECB6E8 /* MainTitleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTitleObject.m; sourceTree = "<group>"; };
 		8BDEB47716F6FFD900ECB6E8 /* NetworkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkData.h; sourceTree = "<group>"; };
@@ -284,6 +292,11 @@
 				8BB1FB7E171555B50058FAC8 /* CatelogViewCell.h */,
 				8BB1FB7F171555B50058FAC8 /* CatelogViewCell.m */,
 				8BB1FB81171555CE0058FAC8 /* CatelogViewCell.xib */,
+				8BB1FB861717B5D60058FAC8 /* CatelogDetailViewController.h */,
+				8BB1FB871717B5D60058FAC8 /* CatelogDetailViewController.m */,
+				8BB1FB891717BA4F0058FAC8 /* CatelogDetailViewCell.h */,
+				8BB1FB8A1717BA4F0058FAC8 /* CatelogDetailViewCell.m */,
+				8BB1FB8C1717BA600058FAC8 /* CatelogDetailViewCell.xib */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -436,6 +449,7 @@
 				8B0BC90E1712C1830031833E /* Hiragino Sans GB W6.otf in Resources */,
 				8BB1FB7A1713B6AD0058FAC8 /* VideoSetCell.xib in Resources */,
 				8BB1FB82171555CE0058FAC8 /* CatelogViewCell.xib in Resources */,
+				8BB1FB8D1717BA600058FAC8 /* CatelogDetailViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +486,8 @@
 				8BB1FB781713B6920058FAC8 /* VideoSetCell.m in Sources */,
 				8BB1FB7D17154D6C0058FAC8 /* CatelogViewController.m in Sources */,
 				8BB1FB80171555B50058FAC8 /* CatelogViewCell.m in Sources */,
+				8BB1FB881717B5D60058FAC8 /* CatelogDetailViewController.m in Sources */,
+				8BB1FB8B1717BA4F0058FAC8 /* CatelogDetailViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CatelogDetailViewCell : UITableViewCell
+@protocol CatelogDetailViewDelegate <NSObject>
 
+@optional
+- (void) clickedImageSend: (int) mid;
+
+@end
+
+@interface CatelogDetailViewCell : UITableViewCell {
+    UIImageView *firstImageView;
+    UIImageView *secondImageView;
+    UIImageView *thirdImageView;
+}
+
+@property (strong, nonatomic) IBOutlet UIImageView *firstImageView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *secondImageView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *thirdImageView;
+
+-(void) initDraw: (NSArray *) array;
+
+@property (nonatomic, weak) id<CatelogDetailViewDelegate> delegate;
 @end

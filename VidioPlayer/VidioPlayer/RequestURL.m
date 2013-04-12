@@ -22,6 +22,8 @@
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneVideoSet"];
         case CATELOG_URL:
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelog"];
+        case CATELOG_DETAIL_URL:
+            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelogDetail"];
         default:
             break;
     }

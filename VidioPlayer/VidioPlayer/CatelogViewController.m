@@ -12,6 +12,7 @@
 #import "RequestURL.h"
 #import "CatelogViewCell.h"
 #import "MainColumnObject.h"
+#import "CatelogDetailViewController.h"
 
 @interface CatelogViewController ()
 
@@ -52,6 +53,7 @@
     [self loadArrays];
     
     [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
     if (_refreshHeaderView == nil)
     {
@@ -144,14 +146,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    NSLog(@"%d",[indexPath row]);
+    MainColumnObject *vo = [catelogArray objectAtIndex:[indexPath row]];
+    
+    CatelogDetailViewController *controller = [[CatelogDetailViewController alloc] init];
+    [controller initDraw:vo.columnId];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)reloadTableViewDataSource

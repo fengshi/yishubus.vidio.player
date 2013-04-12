@@ -7,9 +7,19 @@
 //
 
 #import "CatelogDetailViewController.h"
+#import "Constants.h"
+#import "RequestURL.h"
+#import "NetworkData.h"
+#import "CatelogDetailViewCell.h"
+#import "VideoSetController.h"
 
 @interface CatelogDetailViewController ()
-
+{
+    int pageNumber;
+    int cId;
+    NSMutableArray *initArray;
+    NSMutableArray *loadArray;
+}
 @end
 
 @implementation CatelogDetailViewController
@@ -18,20 +28,61 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.navigationItem.title = @"艺术巴士";
     }
     return self;
+}
+
+- (void) initDraw: (int) columnId
+{
+    cId = columnId;
+    pageNumber = 1;
+    
+    [self loadArrays];
+}
+
+- (void) loadArrays
+{
+    dispatch_queue_t downloadArray = dispatch_queue_create("catelogDetailArray", nil);
+    dispatch_async(downloadArray, ^{
+        NSString *titleUrl = [RequestURL getUrlByKey:CATELOG_DETAIL_URL];
+        initArray = [NetworkData catelogDetailData:titleUrl columnId:cId number:pageNumber];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (_refreshHeaderView == nil)
+    {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, 0 - self.tableView.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    
+    [_refreshHeaderView refreshLastUpdatedDate];
+    [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
+
+- (NSArray *) cellArray: (int) row
+{
+    int index_ = 3 * row + 1;
+    int end_ = index_ + 3;
+    NSMutableArray *tmp = [[NSMutableArray alloc] init];
+    
+    for (int i = index_; i <end_ ; i++) {
+        if ([initArray count] >= i) {
+            [tmp addObject:[initArray objectAtIndex:i-1]];
+        }
+    }
+    return tmp;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,78 +95,95 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    int cellCount = 0;
+    
+    if ([initArray count] > 0)
+    {
+        if ([initArray count] % 3 == 0) {
+            cellCount = [initArray count] / 3;
+        } else {
+            cellCount = [initArray count] / 3 + 1;
+        }
+        if (cellCount == 0) {
+            cellCount = 1;
+        }
+    }
+    
+    return cellCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *catelogDetailViewCell = @"catelogDetailViewCell";
     
-    // Configure the cell...
+    UINib *nib = [UINib nibWithNibName:@"CatelogDetailViewCell" bundle:nil];
+    [tableView registerNib:nib forCellReuseIdentifier:catelogDetailViewCell];
+        
+    CatelogDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:catelogDetailViewCell];
+    [cell initDraw:[self cellArray:[indexPath row]]];
     
+    cell.delegate = self;
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) clickedImageSend:(int)mid
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    VideoSetController *controller = [[VideoSetController alloc] init];
+    [controller initDraw:mid];
+    [self.navigationController pushViewController:controller animated:YES];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)reloadTableViewDataSource
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self loadArrays];
+    //    [self.tableView reloadData];
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+    
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void) egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2.0];
+}
+
+- (BOOL) egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+
+- (NSDate *) egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
 }
 
 @end

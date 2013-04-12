@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGORefreshTableHeaderView.h"
+#import "CatelogDetailViewCell.h"
 
-@interface CatelogDetailViewController : UITableViewController
+@interface CatelogDetailViewController : UITableViewController <EGORefreshTableHeaderDelegate,CatelogDetailViewDelegate> {
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+}
 
+- (void) initDraw: (int) columnId;
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 @end
