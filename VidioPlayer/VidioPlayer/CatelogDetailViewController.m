@@ -19,6 +19,7 @@
     int cId;
     NSMutableArray *initArray;
     NSMutableArray *loadArray;
+    BOOL _loadingMore;
 }
 @end
 
@@ -67,6 +68,7 @@
     }
     
     [_refreshHeaderView refreshLastUpdatedDate];
+    [self createTableFooter];
     [self.tableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
@@ -144,6 +146,43 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void) createTableFooter
+{
+    self.tableView.tableFooterView = nil;
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
+    UILabel *loadMoreText = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 116, 40)];
+    
+    [loadMoreText setFont:[UIFont fontWithName:@"HiraginoSansGB-W6" size:14]];
+    [loadMoreText setText:@"上拉显示更多"];
+    [loadMoreText setTextColor:[UIColor whiteColor]];
+    
+    [loadMoreText setBackgroundColor:[UIColor clearColor]];
+    [tableFooterView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
+    [tableFooterView addSubview:loadMoreText];
+    
+    self.tableView.tableFooterView = tableFooterView;
+}
+
+- (void) loadDataBegin
+{
+    if (_loadingMore == NO) {
+        _loadingMore = YES;
+        
+        pageNumber = pageNumber + 1;
+        NSString *titleUrl = [RequestURL getUrlByKey:CATELOG_DETAIL_URL];
+        loadArray = [NetworkData catelogDetailData:titleUrl columnId:cId number:pageNumber];
+        
+        if (loadArray.count > 0) {
+            for (int i=0; i<loadArray.count; i++) {
+                [initArray addObject:[loadArray objectAtIndex:i]];
+            }
+            [self.tableView reloadData];
+            _loadingMore = NO;
+            [self createTableFooter];
+        }
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)reloadTableViewDataSource
@@ -167,6 +206,9 @@
 
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    if (!_loadingMore && scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height))) {
+        [self loadDataBegin];
+    }
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
 }
 
