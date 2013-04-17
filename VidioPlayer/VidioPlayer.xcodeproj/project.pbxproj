@@ -22,6 +22,7 @@
 		8B96294116F6F6B900889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293F16F6F6B900889C39 /* MainViewController.m */; };
 		8B976DEE1709466300ED5C7A /* MainColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B976DED1709466300ED5C7A /* MainColumnCell.m */; };
 		8B976DF01709469700ED5C7A /* MainColumnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B976DEF1709469700ED5C7A /* MainColumnCell.xib */; };
+		8B9A5F97171E7F370062FB0F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A5F96171E7F370062FB0F /* SearchViewController.m */; };
 		8BB0E86E16F314470049F92E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86D16F314470049F92E /* UIKit.framework */; };
 		8BB0E87016F314470049F92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86F16F314470049F92E /* Foundation.framework */; };
 		8BB0E87216F314470049F92E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E87116F314470049F92E /* CoreGraphics.framework */; };
@@ -86,6 +87,8 @@
 		8B976DEC1709466200ED5C7A /* MainColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainColumnCell.h; sourceTree = "<group>"; };
 		8B976DED1709466300ED5C7A /* MainColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainColumnCell.m; sourceTree = "<group>"; };
 		8B976DEF1709469700ED5C7A /* MainColumnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainColumnCell.xib; sourceTree = "<group>"; };
+		8B9A5F95171E7F370062FB0F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		8B9A5F96171E7F370062FB0F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		8BB0E86A16F314470049F92E /* VidioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB0E86D16F314470049F92E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB0E86F16F314470049F92E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -297,6 +300,8 @@
 				8BB1FB891717BA4F0058FAC8 /* CatelogDetailViewCell.h */,
 				8BB1FB8A1717BA4F0058FAC8 /* CatelogDetailViewCell.m */,
 				8BB1FB8C1717BA600058FAC8 /* CatelogDetailViewCell.xib */,
+				8B9A5F95171E7F370062FB0F /* SearchViewController.h */,
+				8B9A5F96171E7F370062FB0F /* SearchViewController.m */,
 			);
 			path = VidioPlayer;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				8BB1FB80171555B50058FAC8 /* CatelogViewCell.m in Sources */,
 				8BB1FB881717B5D60058FAC8 /* CatelogDetailViewController.m in Sources */,
 				8BB1FB8B1717BA4F0058FAC8 /* CatelogDetailViewCell.m in Sources */,
+				8B9A5F97171E7F370062FB0F /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
