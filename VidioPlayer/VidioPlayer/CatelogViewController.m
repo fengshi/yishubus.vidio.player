@@ -92,7 +92,7 @@
     
     CatelogViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     MainColumnObject *vo = [catelogArray objectAtIndex:[indexPath row]];
-    [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.columnImageUrl]]] introduce:vo.columnName];
+    [cell initDraw:vo.columnImageUrl introduce:vo.columnName];
     
     return cell;
 }

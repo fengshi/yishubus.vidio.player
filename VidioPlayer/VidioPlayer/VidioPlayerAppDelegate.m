@@ -9,6 +9,7 @@
 #import "VidioPlayerAppDelegate.h"
 #import "MainViewController.h"
 #import "CatelogViewController.h"
+#import "SearchViewController.h"
 #import "Reachability.h"
 #import "Constants.h"
 
@@ -31,7 +32,11 @@
     UINavigationController *catelogNavigation = [[UINavigationController alloc] initWithRootViewController:catelogController];
     catelogNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
     
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,catelogNavigation, nil];
+    SearchViewController *searchController = [[SearchViewController alloc] init];
+    UINavigationController *searchNavigation = [[UINavigationController alloc] initWithRootViewController:searchController];
+    searchNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,catelogNavigation,searchNavigation, nil];
     
     [self.window addSubview:self.tabBarController.view];
     
