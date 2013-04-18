@@ -7,11 +7,17 @@
 //
 
 #import "SearchViewController.h"
+#import "MainTitleObject.h"
+#import "Constants.h"
+#import "NetworkData.h"
+#import "RequestURL.h"
+#import "VideoSetController.h"
 
 @interface SearchViewController ()
 {
     UISearchBar *mySearchBar;
     UITableView *searchTableView;
+    NSMutableArray *array;
 }
 @end
 
@@ -48,13 +54,11 @@
     
     searchTableView.tableHeaderView = mySearchBar;
     UITapGestureRecognizer *tableGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCloseKeyBoard:)];
-    
+    tableGesture.delegate = self;
     [searchTableView addGestureRecognizer:tableGesture];
     
     [self.view addSubview:searchTableView];
-//    searchBar.showsCancelButton = YES;
-    
-//    [self.view addSubview:searchBar];
+
 }
 
 - (void) clickCloseKeyBoard: (UITapGestureRecognizer *) gesture
@@ -71,8 +75,11 @@
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
-    NSLog(@"%@",searchBar.text);
-    NSLog(@"search.....");
+    
+    NSString *titleUrl = [RequestURL getUrlByKey:SEARCH_URL];
+    array = [NetworkData searchData:titleUrl searchText:searchBar.text];
+    
+    [searchTableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -82,15 +89,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    MainTitleObject *obj = [array objectAtIndex:[indexPath row]];
+    cell.textLabel.text = obj.introduce;
+
     return cell;
+}
+
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+//    NSLog(@"%@",[touch.view class]);
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;
+    }
+    [mySearchBar resignFirstResponder];
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MainTitleObject *vo = [array objectAtIndex:[indexPath row]];
+
+    VideoSetController *controller = [[VideoSetController alloc] init];
+    [controller initDraw:vo.mid];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

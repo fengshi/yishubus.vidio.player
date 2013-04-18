@@ -29,7 +29,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.navigationItem.title = @"艺术巴士";
+        self.navigationItem.title = @"分类";
     }
     return self;
 }

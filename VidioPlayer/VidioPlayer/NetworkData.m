@@ -185,4 +185,32 @@
     return nil;
 }
 
++ (NSMutableArray *) searchData: (NSString *) dataUrl searchText: (NSString *) searchText
+{
+    NSURL *url = [NSURL URLWithString:dataUrl];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:searchText forKey:@"searchText"];
+    
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString *jsonResult = [request responseString];
+        NSArray *resultArray = [jsonResult objectFromJSONString];
+        
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        for (int j=0; j<[resultArray count]; j++) {
+            NSDictionary *detail = [resultArray objectAtIndex:j];
+            NSString *introduce = [detail objectForKey:@"titleName"];
+            NSString *imageUrl = [detail objectForKey:@"imageUrl"];
+            int mid = [[detail objectForKey:@"moveId"] intValue];
+            MainTitleObject *tmp = [[MainTitleObject alloc] init];
+            tmp.imageUrl = imageUrl;
+            tmp.introduce = introduce;
+            tmp.mid = mid;
+            [result addObject:tmp];
+        }
+        return result;
+    }
+    return nil;
+}
 @end
