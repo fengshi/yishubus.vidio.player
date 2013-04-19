@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "VideoSetCell.h"
 
 @interface VideoSetController : UIViewController <UITableViewDataSource,UITableViewDelegate,VideoSetDelegate>
+
+@property (nonatomic, strong) MPMoviePlayerController *player;
 
 - (void) initDraw: (int) mid;
 

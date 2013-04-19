@@ -23,6 +23,7 @@
 		8B976DEE1709466300ED5C7A /* MainColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B976DED1709466300ED5C7A /* MainColumnCell.m */; };
 		8B976DF01709469700ED5C7A /* MainColumnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B976DEF1709469700ED5C7A /* MainColumnCell.xib */; };
 		8B9A5F97171E7F370062FB0F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A5F96171E7F370062FB0F /* SearchViewController.m */; };
+		8B9A5F9F171FDC540062FB0F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */; };
 		8BB0E86E16F314470049F92E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86D16F314470049F92E /* UIKit.framework */; };
 		8BB0E87016F314470049F92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E86F16F314470049F92E /* Foundation.framework */; };
 		8BB0E87216F314470049F92E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB0E87116F314470049F92E /* CoreGraphics.framework */; };
@@ -89,6 +90,7 @@
 		8B976DEF1709469700ED5C7A /* MainColumnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainColumnCell.xib; sourceTree = "<group>"; };
 		8B9A5F95171E7F370062FB0F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		8B9A5F96171E7F370062FB0F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8BB0E86A16F314470049F92E /* VidioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB0E86D16F314470049F92E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8BB0E86F16F314470049F92E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9A5F9F171FDC540062FB0F /* MediaPlayer.framework in Frameworks */,
 				8B8E555816FFFA110092B1CA /* QuartzCore.framework in Frameworks */,
 				8BB0E8B816F3152A0049F92E /* MobileCoreServices.framework in Frameworks */,
 				8BB0E8B616F315240049F92E /* CFNetwork.framework in Frameworks */,
@@ -249,6 +252,7 @@
 		8BB0E86C16F314470049F92E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */,
 				8B8E555716FFFA110092B1CA /* QuartzCore.framework */,
 				8BB0E8B716F3152A0049F92E /* MobileCoreServices.framework */,
 				8BB0E8B516F315240049F92E /* CFNetwork.framework */,

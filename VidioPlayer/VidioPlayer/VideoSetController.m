@@ -66,6 +66,8 @@
     [self.view addSubview:titleView];
     [self.view addSubview:segmentControl];
     [self.view addSubview:myTableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitfull:) name:MPMoviePlayerDidExitFullscreenNotification object:self.player];
 
 }
 
@@ -163,6 +165,23 @@
 
 - (void) clickedVideoCellSend:(int)mid
 {
-    NSLog(@"%d",mid);
+    VideoSetObject *vo = [tableArray objectAtIndex:mid];
+
+    NSURL *movieurl = [NSURL URLWithString:vo.videoUrl];
+    
+    self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieurl];
+    [self.player.view setFrame:self.view.bounds];
+    [self.view addSubview:self.player.view];
+    
+//    self.player.shouldAutoplay = YES;
+//    [self.player setControlStyle:MPMovieScalingModeAspectFit];
+    self.player.scalingMode = MPMovieScalingModeAspectFit;
+    
+    [self.player setFullscreen:YES];
+    [self.player play];
+}
+
+- (void) exitfull: (NSNotification *)notification {
+    [self.player.view removeFromSuperview];
 }
 @end
