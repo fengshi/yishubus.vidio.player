@@ -7,6 +7,12 @@
 //
 
 #import "InitViewController.h"
+#import "MainViewController.h"
+#import "CatelogViewController.h"
+#import "SearchViewController.h"
+#import "Reachability.h"
+#import "Constants.h"
+#import "APIEngine.h"
 
 @interface InitViewController ()
 
@@ -26,7 +32,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.tabBarController = [[UITabBarController alloc] init];
+    [self.tabBarController.view setFrame:self.view.bounds];
+    
+    MainViewController *mainController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
+    mainNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
+    
+    CatelogViewController *catelogController = [[CatelogViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *catelogNavigation = [[UINavigationController alloc] initWithRootViewController:catelogController];
+    catelogNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
+    
+    SearchViewController *searchController = [[SearchViewController alloc] init];
+    UINavigationController *searchNavigation = [[UINavigationController alloc] initWithRootViewController:searchController];
+    searchNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,catelogNavigation,searchNavigation, nil];
+    
+    [self.view addSubview:self.tabBarController.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +57,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL) shouldAutorotate
+{
+    return NO;
+}
+
 
 @end

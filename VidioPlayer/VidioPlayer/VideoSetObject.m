@@ -13,5 +13,7 @@
 @synthesize introduce = _introduce;
 @synthesize detail = _detail;
 @synthesize videoUrl = _videoUrl;
+@synthesize type = _type;
+@synthesize vid = _vid;
 
 @end

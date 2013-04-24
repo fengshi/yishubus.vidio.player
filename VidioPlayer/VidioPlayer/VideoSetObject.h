@@ -14,5 +14,7 @@
 @property (nonatomic, strong) NSString *introduce;
 @property (nonatomic, strong) NSString *detail;
 @property (nonatomic, strong) NSString *videoUrl;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *vid;
 
 @end

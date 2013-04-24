@@ -10,4 +10,5 @@
 
 @interface InitViewController : UIViewController
 
+@property (strong, nonatomic) UITabBarController *tabBarController;
 @end

@@ -15,8 +15,10 @@
 {
     switch (key) {
         case MAIN_TITLE_URL:
+//            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexTitle"];
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhone"];
         case MAIN_COLUMN_URL:
+//            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexLevel"];
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneColumn"];
         case VIDEO_SET_URL:
             return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneVideoSet"];

@@ -12,6 +12,7 @@
 #import "NetworkData.h"
 #import "RequestURL.h"
 #import "VideoSetObject.h"
+#import "JSONKit.h"
 
 @interface VideoSetController () {
     SDSegmentedControl *segmentControl;
@@ -19,11 +20,13 @@
     NSMutableArray *array;
     UITableView *myTableView;
     NSMutableArray *tableArray;
+    NSString *videoUrlString;
 }
 
 @end
 
 @implementation VideoSetController
+@synthesize engine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,6 +72,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitfull:) name:MPMoviePlayerDidExitFullscreenNotification object:self.player];
 
+    self.engine = [APIEngine sharedAPIEngine];
+    [self.engine setDelegate:self];
+    
 }
 
 - (void)viewDidLoad
@@ -166,22 +172,62 @@
 - (void) clickedVideoCellSend:(int)mid
 {
     VideoSetObject *vo = [tableArray objectAtIndex:mid];
+//
+//    NSURL *movieurl = [NSURL URLWithString:vo.videoUrl];
+//    
+//    self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieurl];
+//    [self.player.view setFrame:self.view.bounds];
+//    [self.view addSubview:self.player.view];
+//    
+////    self.player.shouldAutoplay = YES;
+////    [self.player setControlStyle:MPMovieScalingModeAspectFit];
+//    self.player.scalingMode = MPMovieScalingModeAspectFit;
+//    
+//    [self.player setFullscreen:YES];
+//    [self.player play];
+    if ([vo.type isEqualToString:@"56"]) {
+//        NSLog(@"%@",vo.vid);
+        [self.engine getVideoAddressWithID:vo.vid userInfo:nil];
+    }
 
-    NSURL *movieurl = [NSURL URLWithString:vo.videoUrl];
-    
-    self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieurl];
-    [self.player.view setFrame:self.view.bounds];
-    [self.view addSubview:self.player.view];
-    
-//    self.player.shouldAutoplay = YES;
-//    [self.player setControlStyle:MPMovieScalingModeAspectFit];
-    self.player.scalingMode = MPMovieScalingModeAspectFit;
-    
-    [self.player setFullscreen:YES];
-    [self.player play];
 }
 
 - (void) exitfull: (NSNotification *)notification {
     [self.player.view removeFromSuperview];
+}
+
+- (void) finishedAPIReqeust:(NSString *)result userInfo:(NSDictionary *)info
+{
+    NSDictionary *resultDictionary = [result objectFromJSONString];
+    NSDictionary *infoDictionary = [resultDictionary objectForKey:@"info"];
+    NSArray *refiles = [infoDictionary objectForKey:@"rfiles"];
+    for (int i=0; i<refiles.count; i++) {
+        NSDictionary *videos = [refiles objectAtIndex:i];
+        if ([[videos objectForKey:@"type"] isEqualToString:@"qvga"]) {
+            videoUrlString = [videos objectForKey:@"url"];
+            break;
+        }
+    }
+    NSURL *movieurl = [NSURL URLWithString:videoUrlString];
+//    MPMoviePlayerController *vc = [[MPMoviePlayerController alloc] initWithContentURL:movieurl];
+//    [self presentMoviePlayerViewControllerAnimated:vc];
+//    [vc.moviePlayer play];
+    
+    self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieurl];
+    [self.player.view setFrame:self.view.bounds];
+    [self.view addSubview:self.player.view];
+
+    self.player.scalingMode = MPMovieScalingModeAspectFit;
+
+    [self.player setFullscreen:YES];
+    [self.player play];
+
+//    [self.engine playVideoWithUrl:videoUrlString playerPresentedByViewController:self];
+}
+
+- (void) failAPIRequest:(NSError *)error userInfo:(NSDictionary *)info
+{
+    NSLog(@"fail");
+    NSLog(@"%@",[info class]);
 }
 @end

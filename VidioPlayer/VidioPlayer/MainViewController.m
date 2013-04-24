@@ -126,6 +126,7 @@
     VideoSetController *controller = [[VideoSetController alloc] init];
     [controller initDraw:mid];
     [self.navigationController pushViewController:controller animated:YES];
+//    [self presentViewController:controller animated:YES completion:^{}];
 }
 
 - (void) clickedColumnImageSend:(int)mid
@@ -220,4 +221,5 @@
 {
     return [NSDate date];
 }
+
 @end
