@@ -103,7 +103,7 @@
             [tableArray addObject:[temp objectAtIndex:i]];
         }
 
-        [myTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+//        [myTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         [myTableView setBackgroundColor:MAIN_SECTION_BACKGROUND_COLOR];
         [myTableView reloadData];
     } else if (index == 2) {
@@ -134,6 +134,7 @@
         VideoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:videoSetCell];
         VideoSetObject *vo = [tableArray objectAtIndex:[indexPath row]];
         [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.imageUrl]]] introduce:vo.introduce detail:vo.detail index:[indexPath row]];
+
         cell.delegate = self;
         return cell;
     } else {

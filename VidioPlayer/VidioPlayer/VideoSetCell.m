@@ -32,7 +32,10 @@
 
 - (void) initDraw:(UIImage *)image introduce:(NSString *)introduce detail:(NSString *)detail index:(int) cellIndex
 {
-    self.imageView.image = image;
+//    self.imageView.image = image;
+    UIImageView *myView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, CATELOG_IMAGE_WIDTH, CATELOG_IMAGE_HEIGHT)];
+    myView.image = image;
+    
     self.introduceLabel.text = introduce;
     self.detailLabel.text = detail;
     
@@ -42,6 +45,7 @@
     UIFont *detailFont = [UIFont fontWithName:@"HiraginoSansGB-W6" size:12];
     [self.detailLabel setFont:detailFont];
     
+    [self addSubview:myView];
     self.button.tag = cellIndex;
 }
 

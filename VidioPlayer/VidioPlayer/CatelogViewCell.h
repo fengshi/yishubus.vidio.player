@@ -10,8 +10,8 @@
 
 @interface CatelogViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *introduce;
+@property (copy, nonatomic) NSString *introduceString;
+@property (copy, nonatomic) NSString *imageUrl;
 
-- (void) initDraw: (NSString *) imageUrl introduce:(NSString *) introduce;
 @end

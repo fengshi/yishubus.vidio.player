@@ -18,7 +18,6 @@
 
 @property (strong,nonatomic) IBOutlet UILabel *introduceLabel;
 @property (strong,nonatomic) IBOutlet UILabel *detailLabel;
-@property (strong,nonatomic) IBOutlet UIImageView *imageView;
 @property (strong,nonatomic) IBOutlet UIButton *button;
 
 @property (nonatomic, weak) id<VideoSetDelegate> delegate;

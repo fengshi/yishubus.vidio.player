@@ -7,8 +7,11 @@
 //
 
 #import "CatelogViewCell.h"
+#import "Constants.h"
 
 @implementation CatelogViewCell
+@synthesize introduceString;
+@synthesize imageUrl;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,12 +29,23 @@
     // Configure the view for the selected state
 }
 
-- (void) initDraw: (NSString *) imageUrl introduce:(NSString *) introduce
+- (void) setIntroduceString:(NSString *)n
 {
-    self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
-    self.introduce.text = introduce;
-    
-    UIFont *introduceFont = [UIFont fontWithName:@"HiraginoSansGB-W6" size:14];
-    [self.introduce setFont:introduceFont];
+    if (![n isEqualToString:introduceString]) {
+        introduceString = [n copy];
+        self.introduce.text = introduceString;
+    }
 }
+
+- (void) setImageUrl:(NSString *)iUrl
+{
+    if (![iUrl isEqualToString:imageUrl]) {
+        imageUrl = [iUrl copy];
+        UIImageView *myView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, CATELOG_IMAGE_WIDTH, CATELOG_IMAGE_HEIGHT)];
+        myView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+        [self addSubview:myView];
+    }
+}
+
+
 @end

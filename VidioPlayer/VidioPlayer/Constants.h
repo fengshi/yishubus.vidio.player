@@ -33,5 +33,8 @@
 #define VIDEO_SEGMENTED_HEIGHT          34
 #define VIDEO_SEGMENTED_BACKGROUND_COLOR   [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1]
 
+#define CATELOG_IMAGE_WIDTH             160
+#define CATELOG_IMAGE_HEIGHT            80
+
 #define APPID_56                        @"3000001965"
 #define SECRET_56                       @"8dfdac2834f3a43f"

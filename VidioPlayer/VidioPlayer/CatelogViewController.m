@@ -92,7 +92,9 @@
     
     CatelogViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     MainColumnObject *vo = [catelogArray objectAtIndex:[indexPath row]];
-    [cell initDraw:vo.columnImageUrl introduce:vo.columnName];
+//    [cell initDraw:vo.columnImageUrl introduce:vo.columnName];
+    cell.introduceString = vo.columnName;
+    cell.imageUrl = vo.columnImageUrl;
     
     return cell;
 }
