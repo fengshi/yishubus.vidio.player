@@ -15,19 +15,23 @@
 {
     switch (key) {
         case MAIN_TITLE_URL:
-//            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexTitle"];
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhone"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexTitle"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhone"];
         case MAIN_COLUMN_URL:
-//            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexLevel"];
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneColumn"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileIndexLevel"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneColumn"];
         case VIDEO_SET_URL:
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneVideoSet"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileLessonVideoList"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneVideoSet"];
         case CATELOG_URL:
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelog"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileLevel"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelog"];
         case CATELOG_DETAIL_URL:
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelogDetail"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileLessonList"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneCatelogDetail"];
         case SEARCH_URL:
-            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneSearch"];
+            return [MAIN stringByAppendingString:@"websitLessonAction.do?action=mobileLessonSearch"];
+//            return [MAIN stringByAppendingString:@"testAction.do?action=testPhoneSearch"];
         default:
             break;
     }
