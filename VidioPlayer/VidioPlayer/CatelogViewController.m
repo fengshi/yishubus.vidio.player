@@ -27,7 +27,7 @@
         self.navigationItem.title = @"分类";
         
         UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"分类" image:nil tag:0];
-        [item setFinishedSelectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]] withFinishedUnselectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar1" ofType:@"png"]]];
+        [item setFinishedSelectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar2" ofType:@"png"]] withFinishedUnselectedImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bar2" ofType:@"png"]]];
         self.tabBarItem = item;
     }
     return self;

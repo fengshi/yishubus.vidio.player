@@ -7,7 +7,7 @@
 //
 
 #define MAIN                            @"http://www.yishubus.com/"
-//#define MAIN                            @"http://192.168.0.108:8080/"
+//#define MAIN                            @"http://192.168.0.105:8080/"
 
 #define MAIN_TITLE_URL                  1
 #define MAIN_COLUMN_URL                 2
