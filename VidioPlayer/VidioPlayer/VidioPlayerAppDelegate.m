@@ -24,23 +24,7 @@
     [hostReach startNotifier];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.tabBarController = [[UITabBarController alloc] init];
-//    
-//    MainViewController *mainController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
-//    UINavigationController *mainNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
-//    mainNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
-//    
-//    CatelogViewController *catelogController = [[CatelogViewController alloc] initWithStyle:UITableViewStylePlain];
-//    UINavigationController *catelogNavigation = [[UINavigationController alloc] initWithRootViewController:catelogController];
-//    catelogNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
-//    
-//    SearchViewController *searchController = [[SearchViewController alloc] init];
-//    UINavigationController *searchNavigation = [[UINavigationController alloc] initWithRootViewController:searchController];
-//    searchNavigation.navigationBar.tintColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:1];
-//    
-//    self.tabBarController.viewControllers = [NSArray arrayWithObjects:mainNavigation,catelogNavigation,searchNavigation, nil];
-    
-//    [self.window addSubview:self.tabBarController.view];
+
     InitViewController *con = [[InitViewController alloc] init];
     [con.view setFrame:self.window.bounds];
     

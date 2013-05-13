@@ -46,6 +46,7 @@
 - (void) initDraw: (int) mid
 {
     NSString *titleUrl = [RequestURL getUrlByKey:VIDEO_SET_URL];
+
     array = [NetworkData videoSetData:titleUrl mid:mid];
     
 	titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, MAIN_TITLE_HEIGHT)];
