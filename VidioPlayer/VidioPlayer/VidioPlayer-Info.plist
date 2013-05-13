@@ -14,7 +14,7 @@
 		<string>icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>yishubus.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.yishubus.VidioPlayer</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
