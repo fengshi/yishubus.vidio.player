@@ -40,7 +40,7 @@
     startImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]];
     
     [self.window addSubview:startImageView];
-    [self performSelector:@selector(theAnimation) withObject:nil afterDelay:5];
+    [self performSelector:@selector(theAnimation) withObject:nil afterDelay:8];
     
     return YES;
 }

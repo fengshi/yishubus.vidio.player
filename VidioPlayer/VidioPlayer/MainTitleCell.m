@@ -69,7 +69,8 @@
     CGRect pageRect = self.myScrollView.frame;
     for (MainTitleObject *mm in self.imageViews) {
         UIImageView *view = [[UIImageView alloc] initWithFrame:pageRect];
-        view.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mm.imageUrl]]];
+//        view.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mm.imageUrl]]];
+        view.image = mm.image;
         [view setUserInteractionEnabled:YES];
         [view setTag:mm.mid];
         UITapGestureRecognizer *touchViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageViewAction:)];

@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *imageUrl;
 @property (nonatomic, strong) NSString *introduce;
 @property (nonatomic) int mid;
+@property (nonatomic, strong) UIImage *image;
 
 @end

@@ -134,7 +134,8 @@
         
         VideoSetCell *cell = [tableView dequeueReusableCellWithIdentifier:videoSetCell];
         VideoSetObject *vo = [tableArray objectAtIndex:[indexPath row]];
-        [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.imageUrl]]] introduce:vo.introduce detail:vo.detail index:[indexPath row]];
+//        [cell initDraw:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:vo.imageUrl]]] introduce:vo.introduce detail:vo.detail index:[indexPath row]];
+        [cell initDraw:vo.image introduce:vo.introduce detail:vo.detail index:[indexPath row]];
 
         cell.delegate = self;
         return cell;

@@ -13,5 +13,6 @@
 @synthesize imageUrl = _imageUrl;
 @synthesize introduce = _introduce;
 @synthesize mid = _mid;
+@synthesize image = _image;
 
 @end

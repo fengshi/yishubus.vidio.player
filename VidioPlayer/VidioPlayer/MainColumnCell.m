@@ -50,7 +50,8 @@
 {
     for (MainTitleObject *mm in self.imageArrays) {
         UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SECTION_IMAGE_WIDTH, MAIN_SECTION_IMAGE_HEIGHT)];
-        view.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mm.imageUrl]]];
+//        view.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mm.imageUrl]]];
+        view.image = mm.image;
         [view setUserInteractionEnabled:YES];
         [view setTag:mm.mid];
         UITapGestureRecognizer *touchViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageViewAction:)];

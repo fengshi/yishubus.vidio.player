@@ -15,5 +15,6 @@
 @synthesize videoUrl = _videoUrl;
 @synthesize type = _type;
 @synthesize vid = _vid;
+@synthesize image = _image;
 
 @end

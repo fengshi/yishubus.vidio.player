@@ -41,6 +41,7 @@
                 tmp.imageUrl = imageUrl;
                 tmp.introduce = introduce;
                 tmp.mid = mid;
+                tmp.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:tmp.imageUrl]]];
                 [result addObject:tmp];
             }
             return result;
@@ -79,6 +80,7 @@
                     tmp.imageUrl = imageUrl;
                     tmp.introduce = introduce;
                     tmp.mid = mid;
+                    tmp.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:tmp.imageUrl]]];
                     [columnDetailArray addObject:tmp];
                 }
                 object.columnDetails = columnDetailArray;
@@ -135,6 +137,7 @@
                     object.videoUrl = [video objectForKey:@"videoUrl"];
                     object.type = type;
                     object.vid = [video objectForKey:@"videoUrl"];
+                    object.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:object.imageUrl]]];
                     
                     [videoMutableArray addObject:object];
                 }

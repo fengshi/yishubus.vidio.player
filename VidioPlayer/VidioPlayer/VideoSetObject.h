@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString *videoUrl;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *vid;
+@property (nonatomic, strong) UIImage *image;
 
 @end
