@@ -22,6 +22,7 @@
 		8B96294116F6F6B900889C39 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B96293F16F6F6B900889C39 /* MainViewController.m */; };
 		8B976DEE1709466300ED5C7A /* MainColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B976DED1709466300ED5C7A /* MainColumnCell.m */; };
 		8B976DF01709469700ED5C7A /* MainColumnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B976DEF1709469700ED5C7A /* MainColumnCell.xib */; };
+		8B9855C01741EA6E000432B1 /* lib56SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9855BF1741EA6E000432B1 /* lib56SDK.a */; };
 		8B9A5F97171E7F370062FB0F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A5F96171E7F370062FB0F /* SearchViewController.m */; };
 		8B9A5F9F171FDC540062FB0F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */; };
 		8B9C60AD173CE2DA0050D52A /* bar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C60A9173CE2DA0050D52A /* bar2.png */; };
@@ -33,7 +34,6 @@
 		8B9C60B6173CE7480050D52A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C60B3173CE7480050D52A /* Default@2x.png */; };
 		8B9C60C1173CEC1D0050D52A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C60BF173CEC1D0050D52A /* Icon.png */; };
 		8B9C60C2173CEC1D0050D52A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C60C0173CEC1D0050D52A /* Icon@2x.png */; };
-		8BACF3D51726473A000C543F /* lib56SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BACF3D41726473A000C543F /* lib56SDK.a */; };
 		8BACF3D717264750000C543F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BACF3D617264750000C543F /* CoreTelephony.framework */; };
 		8BACF3D91726475F000C543F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BACF3D81726475F000C543F /* Security.framework */; };
 		8BACF3DB17264778000C543F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BACF3DA17264778000C543F /* CoreLocation.framework */; };
@@ -99,6 +99,7 @@
 		8B976DEC1709466200ED5C7A /* MainColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainColumnCell.h; sourceTree = "<group>"; };
 		8B976DED1709466300ED5C7A /* MainColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainColumnCell.m; sourceTree = "<group>"; };
 		8B976DEF1709469700ED5C7A /* MainColumnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainColumnCell.xib; sourceTree = "<group>"; };
+		8B9855BF1741EA6E000432B1 /* lib56SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib56SDK.a; path = "../../../../Downloads/wole56_sdk_iOS_1.0.1 2/libs/lib56SDK.a"; sourceTree = "<group>"; };
 		8B9A5F95171E7F370062FB0F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		8B9A5F96171E7F370062FB0F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -111,7 +112,6 @@
 		8B9C60B3173CE7480050D52A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8B9C60BF173CEC1D0050D52A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		8B9C60C0173CEC1D0050D52A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		8BACF3D41726473A000C543F /* lib56SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib56SDK.a; path = ../../../../Downloads/wole56_sdk_iOS_1.0.1/libs/lib56SDK.a; sourceTree = "<group>"; };
 		8BACF3D617264750000C543F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8BACF3D81726475F000C543F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8BACF3DA17264778000C543F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -224,10 +224,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9855C01741EA6E000432B1 /* lib56SDK.a in Frameworks */,
 				8BACF3DB17264778000C543F /* CoreLocation.framework in Frameworks */,
 				8BACF3D91726475F000C543F /* Security.framework in Frameworks */,
 				8BACF3D717264750000C543F /* CoreTelephony.framework in Frameworks */,
-				8BACF3D51726473A000C543F /* lib56SDK.a in Frameworks */,
 				8B9A5F9F171FDC540062FB0F /* MediaPlayer.framework in Frameworks */,
 				8B8E555816FFFA110092B1CA /* QuartzCore.framework in Frameworks */,
 				8BB0E8B816F3152A0049F92E /* MobileCoreServices.framework in Frameworks */,
@@ -403,10 +403,10 @@
 		8BB0E86C16F314470049F92E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B9855BF1741EA6E000432B1 /* lib56SDK.a */,
 				8BACF3DA17264778000C543F /* CoreLocation.framework */,
 				8BACF3D81726475F000C543F /* Security.framework */,
 				8BACF3D617264750000C543F /* CoreTelephony.framework */,
-				8BACF3D41726473A000C543F /* lib56SDK.a */,
 				8B9A5F9E171FDC540062FB0F /* MediaPlayer.framework */,
 				8B8E555716FFFA110092B1CA /* QuartzCore.framework */,
 				8BB0E8B716F3152A0049F92E /* MobileCoreServices.framework */,
@@ -744,8 +744,8 @@
 		8BB0E88816F314470049F92E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: yang wei (A49T3ML6A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yang wei (A49T3ML6A4)";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VidioPlayer/VidioPlayer-Prefix.pch";
@@ -755,11 +755,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Downloads/wole56_sdk_iOS_1.0.1/libs\"",
+					"\"$(SRCROOT)/../../../../Downloads/wole56_sdk_iOS_1.0.1 2/libs\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -767,8 +770,8 @@
 		8BB0E88916F314470049F92E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: yang wei (A49T3ML6A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yang wei (A49T3ML6A4)";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VidioPlayer/VidioPlayer-Prefix.pch";
@@ -778,11 +781,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Downloads/wole56_sdk_iOS_1.0.1/libs\"",
+					"\"$(SRCROOT)/../../../../Downloads/wole56_sdk_iOS_1.0.1 2/libs\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
