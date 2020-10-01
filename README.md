@@ -1,4 +1,4 @@
-yishubus.vidio.player
+yishubus.video.player
 =====================
 
 yishubus
